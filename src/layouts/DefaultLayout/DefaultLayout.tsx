@@ -1,8 +1,10 @@
+import "twin.macro";
+
 const DefaultLayout: React.FC = ({ children }) => {
   return (
-    <div>
-      <header>stuff</header>
-      <div>
+    <div tw="min-h-screen font-sans antialiased break-words text-sky-black bg-sky-gray-100">
+      <div tw="container mx-auto">
+        <header>header stuff</header>
         <main>{children}</main>
       </div>
     </div>
@@ -10,6 +12,7 @@ const DefaultLayout: React.FC = ({ children }) => {
 };
 
 export default DefaultLayout;
+
 /*
 TODO
  return (

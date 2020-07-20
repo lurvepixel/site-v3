@@ -1,5 +1,5 @@
 module.exports = {
   twin: {
-    config: "tailwind.config.js",
+    config: "src/tailwind.config.js",
   },
 };

@@ -1,28 +1,26 @@
 import { useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
+import "twin.macro";
 
-import tw, { styled } from "twin.macro";
-
-const Button = styled.button(tw`font-bold w-full inline-block bg-pink-600`);
+import DefaultLayout from "layouts/DefaultLayout";
+import Button from "elements/atoms/Button";
 
 const Home: NextPage = () => {
   const [counter, setCounter] = useState(0);
 
   return (
-    <div tw="container mx-auto">
+    <DefaultLayout>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Button onClick={() => setCounter((c) => c + 6)}>{counter}</Button>
-        <p>yay</p>
-      </main>
+      <h1 tw="font-bold">cdkcbdcbdjndc cndkcnd</h1>
 
-      <footer></footer>
-    </div>
+      <Button onClick={() => setCounter((c) => c + 6)}>{counter}</Button>
+      <p>yay</p>
+    </DefaultLayout>
   );
 };
 
