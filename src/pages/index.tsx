@@ -4,7 +4,6 @@ import Head from "next/head";
 import "twin.macro";
 
 import DefaultLayout from "layouts/DefaultLayout";
-import { Kind } from "styles";
 import Button from "elements/atoms/Button";
 
 const Home: NextPage = () => {
@@ -19,10 +18,10 @@ const Home: NextPage = () => {
 
       <h1 tw="font-bold">cdkcbdcbdjndc cndkcnd</h1>
 
-      <Button kind={Kind.Accent} onClick={() => setCounter((c) => c + 6)}>
-        {counter}
-      </Button>
-      <p>yay</p>
+      <p>
+        <Button onClick={() => setCounter((c) => c + 6)}>{counter}</Button>
+        nxdcndj
+      </p>
     </DefaultLayout>
   );
 };
