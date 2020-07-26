@@ -9,16 +9,17 @@ export type Kind =
 
 export type Size =
   | "none" // useful for spacing
-  | "XS"
-  | "S"
-  | "M" // or default/base
-  | "L"
-  | "XL"
-  | "XXL";
+  | "xs"
+  | "s"
+  | "m" // or default/base
+  | "l"
+  | "xl"
+  | "xxl";
 
 /*
 // responsiveness is hard to implement as twin.macro does not supports
 // string interpolation as of now (see https://github.com/ben-rogerson/twin.macro/issues/17)
+// also doing responsive and states (active hover) in Tailwind is better
 
 export enum Screen {
   SM = "sm-size-640-px",
