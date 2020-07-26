@@ -16,7 +16,6 @@ class Doc extends Document {
         <Head />
         <body>
           <Main />
-          {/* <div id="zap" /> */}
           {/* <div id="modal" /> */}
           <NextScript />
         </body>
