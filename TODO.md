@@ -1,0 +1,5 @@
+- flip.md
+- eslint (+ MDX https://marketplace.visualstudio.com/items?itemName=JounQin.vscode-mdx and https://github.com/mdx-js/eslint-mdx)
+- prettier
+- husky (pretty-check and lint & ts?)
+- jest

@@ -16,12 +16,13 @@ export enum Kind {
 export type KindMap = { [key in Kind]: any };
 
 export enum Size {
-  XS = "extraSmall",
-  S = "small",
-  M = "medium", // default, base
-  L = "large",
-  XL = "extraLarge",
-  XXL = "extraExtraLarge",
+  None = "none",
+  XS = "XS",
+  S = "S",
+  M = "M", // default, base
+  L = "L",
+  XL = "XL",
+  XXL = "XXL",
 }
 
 export type SizeMap = { [key in Size]: any };
