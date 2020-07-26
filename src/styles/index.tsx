@@ -16,7 +16,7 @@ export enum Kind {
 export type KindMap = { [key in Kind]: any };
 
 export enum Size {
-  None = "none",
+  None = "none", // useful for spacing
   XS = "XS",
   S = "S",
   M = "M", // default, base
