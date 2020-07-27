@@ -16,10 +16,12 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1 tw="font-bold">cdkcbdcbdjndc cndkcnd</h1>
+      <h1 tw="font-semibold text-4xl">cdkcbdcbdjndc cndkcnd</h1>
 
       <p>
-        <Button onClick={() => setCounter((c) => c + 6)}>{counter}</Button>
+        <Button onClick={() => setCounter((c) => c + 6)}>
+          Create an account {counter}
+        </Button>
         nxdcndj
       </p>
     </DefaultLayout>

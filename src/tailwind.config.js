@@ -2,6 +2,10 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   theme: {
+    fontWeight: {
+      normal: 400,
+      semibold: 600,
+    },
     extend: {
       fontFamily: {
         sans: ["Manrope", ...defaultTheme.fontFamily.sans],

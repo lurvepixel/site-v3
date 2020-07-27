@@ -16,7 +16,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         <title>Carbon</title>
         <link rel="icon" href="/favicon.ico" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap"
           rel="stylesheet"
         />
       </Head>
