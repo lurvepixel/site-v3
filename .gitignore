@@ -29,5 +29,6 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# editors
+# editors and IDEs
 .vscode/
+.idea/
