@@ -1,23 +1,20 @@
 import { useState } from "react";
 import { NextPage } from "next";
-import Head from "next/head";
 import "twin.macro";
 
 import DefaultLayout from "layouts/DefaultLayout";
+import Seo from "elements/Seo";
 import Button from "elements/atoms/Button";
+import { LargeHeading, H1, H2, H3 } from "elements/atoms/headings";
+import Head from "next/head";
 
 const Home: NextPage = () => {
   const [counter, setCounter] = useState(0);
 
   return (
     <DefaultLayout>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <h1 tw="font-semibold text-4xl">cdkcbdcbdjndc cndkcnd</h1>
-
+      <Seo title="Home" />
+      <H1>Configuration</H1>
       <p>
         <Button onClick={() => setCounter((c) => c + 6)}>
           Create an account {counter}

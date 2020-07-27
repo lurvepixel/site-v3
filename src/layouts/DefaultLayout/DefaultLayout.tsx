@@ -3,10 +3,12 @@ import "twin.macro";
 const DefaultLayout: React.FC = ({ children }) => {
   return (
     <div tw="min-h-screen font-sans antialiased break-words text-sky-black bg-sky-gray-100">
-      <div tw="container mx-auto">
-        <header>header stuff</header>
-        <main>{children}</main>
-      </div>
+      <header tw="border-b bg-sky-gray-300 py-3">
+        <div tw="container mx-auto">
+          <nav>heading</nav>
+        </div>
+      </header>
+      <main>{children}</main>
     </div>
   );
 };
