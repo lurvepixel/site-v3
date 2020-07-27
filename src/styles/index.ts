@@ -7,14 +7,16 @@ export type Kind =
   | "negative"
   | "warning";
 
+// for sizing and spacing
 export type Size =
   | "none" // useful for spacing
+  | "full" // eg. full width
   | "xs"
   | "s"
   | "m" // or default/base
   | "l"
   | "xl"
-  | "xxl";
+  | "2xl";
 
 /*
 // responsiveness is hard to implement as twin.macro does not supports
