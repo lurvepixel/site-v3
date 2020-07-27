@@ -1,12 +1,17 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { MDXProvider } from '@mdx-js/react'
+
 import 'tailwindcss/dist/base.min.css'
+
+import { H1 } from 'elements/atoms/headings'
 
 // import "styles/debug.css";
 
 /**
  * Use this if you want to make initial setup,
- * import global CSS and add fonts
+ * import global CSS and add fonts,
+ * or to add global context providers
  */
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
@@ -20,7 +25,13 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
           rel="stylesheet"
         />
       </Head>
-      <Component {...pageProps} />
+      <MDXProvider
+        components={{
+          h1: H1,
+        }}
+      >
+        <Component {...pageProps} />
+      </MDXProvider>
     </div>
   )
 }
