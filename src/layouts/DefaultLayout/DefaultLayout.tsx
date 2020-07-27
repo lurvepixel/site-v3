@@ -1,4 +1,4 @@
-import "twin.macro";
+import 'twin.macro'
 
 const DefaultLayout: React.FC = ({ children }) => {
   return (
@@ -10,10 +10,10 @@ const DefaultLayout: React.FC = ({ children }) => {
       </header>
       <main>{children}</main>
     </div>
-  );
-};
+  )
+}
 
-export default DefaultLayout;
+export default DefaultLayout
 
 /*
 TODO

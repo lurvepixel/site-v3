@@ -1,22 +1,22 @@
-export type Theme = "light" | "dark";
+export type Theme = 'light' | 'dark'
 
 export type Kind =
-  | "default" // or info
-  | "accent"
-  | "positive"
-  | "negative"
-  | "warning";
+  | 'default' // or info
+  | 'accent'
+  | 'positive'
+  | 'negative'
+  | 'warning'
 
 // for sizing and spacing
 export type Size =
-  | "none" // useful for spacing
-  | "full" // eg. full width
-  | "xs"
-  | "s"
-  | "m" // or default/base
-  | "l"
-  | "xl"
-  | "2xl";
+  | 'none' // useful for spacing
+  | 'full' // eg. full width
+  | 'xs'
+  | 's'
+  | 'm' // or default/base
+  | 'l'
+  | 'xl'
+  | '2xl'
 
 /*
 // responsiveness is hard to implement as twin.macro does not supports
