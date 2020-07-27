@@ -5,8 +5,7 @@ import 'twin.macro'
 import DefaultLayout from 'layouts/DefaultLayout'
 import Seo from 'elements/Seo'
 import Button from 'elements/atoms/Button'
-import { LargeHeading, H1, H2, H3 } from 'elements/atoms/headings'
-import Head from 'next/head'
+import { H1 } from 'elements/atoms/headings'
 
 const Home: NextPage = () => {
   const [counter, setCounter] = useState(0)
