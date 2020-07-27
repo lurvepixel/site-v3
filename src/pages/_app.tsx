@@ -24,6 +24,10 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
           href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <MDXProvider
         components={{
