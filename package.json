@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "serve:prod": "next build & next start",
-    "lint": "eslint src/**/*.ts src/**/*.tsx",
-    "format": "prettier --write src/**/*.ts src/**/*.tsx src/**/*.css src/**/*.json"
+    "lint": "eslint src/**/*.ts src/**/*.tsx src/**/*.mdx",
+    "format": "prettier --write src/**/*.ts src/**/*.tsx src/**/*.mdx src/**/*.css src/**/*.json"
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
@@ -33,6 +33,7 @@
     "eslint-plugin-flowtype": "^4.7.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-mdx": "^1.7.1",
     "eslint-plugin-react": "^7.20.4",
     "eslint-plugin-react-hooks": "^2.5.1",
     "prettier": "^2.0.5",

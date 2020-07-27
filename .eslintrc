@@ -3,7 +3,8 @@
     "react-app",
     "prettier",
     "prettier/@typescript-eslint",
-    "prettier/react"
+    "prettier/react",
+    "plugin:mdx/recommended"
   ],
   "rules": {
     "no-unexpected-multiline": "error",
