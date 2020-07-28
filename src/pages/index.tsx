@@ -15,18 +15,45 @@ const Home: NextPage<{ code: string }> = ({ code }) => {
   return (
     <DefaultLayout>
       <Seo title="Home" />
-      <H1>Configuration</H1>
-      <p>
-        <Button onClick={() => setCounter(c => c + 6)}>Create an account {counter}</Button>
-        nxdcndj
-      </p>
-      <SyntaxHighlighter code={code} />
+      <div tw="container mx-auto">
+        <H1>Configuration</H1>
+        <p>
+          <Button onClick={() => setCounter(c => c + 6)}>
+            Create an account {counter}
+          </Button>
+          nxdcndj
+        </p>
+        <SyntaxHighlighter code={code} />
+      </div>
     </DefaultLayout>
   )
 }
 
 export async function getStaticProps(context) {
-  const { code } = (await ky.get('http://localhost:3000/api/get-theme').json()) as {
+  const { code } = (await ky
+    .post('http://localhost:3000/api/get-theme', {
+      json: {
+        code: `const Home: NextPage<{ code: string }> = ({ code }) => {
+  const [counter, setCounter] = useState(0)
+
+  return (
+    <DefaultLayout>
+      <Seo title="Home" />
+      <H1>Configuration</H1>
+      <p>
+        <Button onClick={() => setCounter(c => c + 6)}>
+          Create an account {counter}
+        </Button>
+        nxdcndj
+      </p>
+      <SyntaxHighlighter code={code} />
+    </DefaultLayout>
+  )
+}`,
+        lang: 'tsx',
+      },
+    })
+    .json()) as {
     code: string
   }
 

@@ -1,11 +1,16 @@
 import 'twin.macro'
-import { css, theme } from 'twin.macro'
+import tw, { css, theme } from 'twin.macro'
 
 const SyntaxHighlighter: React.FC<{ code: string }> = ({ code }) => {
   return (
     <div
       css={css`
+        pre {
+          ${tw`inline-block overflow-auto rounded p-3`}
+          max-width: 768px;
+        }
         code {
+          ${tw`text-sm`}
           font-family: ${theme('fontFamily.mono')};
         }
       `}
