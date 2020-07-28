@@ -17,10 +17,10 @@
     "ky": "^0.23.0",
     "ky-universal": "^0.8.1",
     "next": "^9.5.0",
+    "prism-react-renderer": "^1.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "rematrix": "^0.7.0",
-    "shiki": "^0.1.7"
+    "rematrix": "^0.7.0"
   },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.27",

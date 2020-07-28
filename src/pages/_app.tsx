@@ -5,6 +5,7 @@ import { MDXProvider } from '@mdx-js/react'
 import 'tailwindcss/dist/base.min.css'
 
 import { H1 } from 'elements/atoms/headings'
+import CodeBlock from 'elements/CodeBlock'
 
 // import "styles/debug.css";
 
@@ -32,6 +33,8 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
       <MDXProvider
         components={{
           h1: H1,
+          pre: props => <div {...props} />,
+          code: CodeBlock,
         }}
       >
         <Component {...pageProps} />
