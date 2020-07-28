@@ -6,7 +6,7 @@ const SyntaxHighlighter: React.FC<{ code: string }> = ({ code }) => {
     <div
       css={css`
         pre {
-          ${tw`inline-block overflow-auto rounded p-3`}
+          ${tw`inline-block overflow-auto rounded px-5 py-3`}
           max-width: 768px;
         }
         code {
