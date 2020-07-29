@@ -14,7 +14,12 @@ const Home: NextPage<{ code: string }> = ({ code }) => {
     <DefaultLayout>
       <Seo title="Home" />
       <div tw="container mx-auto">
-        <H1>Configuration</H1>
+        <div tw="py-16">
+          <H1 tw="text-6xl leading-none">Ajit Singh</H1>
+          <div>
+            <p tw="mt-2 text-lg">This guy makes and breaks stuff, mostly apps.</p>
+          </div>
+        </div>
         <p>
           <Button onClick={() => setCounter(c => c + 6)}>
             Create an account {counter}

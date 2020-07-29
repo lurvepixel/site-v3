@@ -8,7 +8,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Manrope', ...defaultTheme.fontFamily.sans],
+        sans: ['Work Sans', ...defaultTheme.fontFamily.sans],
         mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
       },
       colors: {
@@ -19,7 +19,7 @@ module.exports = {
           'gray-300': '#f4f4f6', // alternative page bg
           'gray-100': '#fbfcfe', // page bg
           'blue-700': '#0064fe', // primary/acccent
-          'blue-300': '#e9f3ff', // primary-faded
+          'blue-300': '#e9f3ff', // primary-muted
         },
         // peach
         pch: {},

@@ -3,10 +3,10 @@ import Highlight, {
   Language,
 } from 'prism-react-renderer'
 import syntaxTheme from 'prism-react-renderer/themes/nightOwl'
-import tw, { css, theme } from 'twin.macro'
+import tw, { css } from 'twin.macro'
 
-const CodeBlock: React.FC<{ className?: string }> = ({ children, className }) => {
-  const lang = String(className ?? '').replace(/language-/, '')
+const CodeBlock: React.FC<{ className?: string }> = ({ children, className = '' }) => {
+  const lang = String(className).replace(/language-/, '')
 
   return (
     <Highlight

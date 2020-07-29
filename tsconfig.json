@@ -17,5 +17,5 @@
     "baseUrl": "src"
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "twin.d.ts", "src"]
+  "include": ["next-env.d.ts", "twin.d.ts", "mdx-react.d.ts", "src"]
 }

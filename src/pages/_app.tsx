@@ -1,11 +1,10 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import { MDXProvider } from '@mdx-js/react'
 
 import 'tailwindcss/dist/base.min.css'
 
-import { H1 } from 'elements/atoms/headings'
-import CodeBlock from 'elements/CodeBlock'
+import tw, { css, theme } from 'twin.macro'
+import MdxWrapper from 'elements/MdxWrapper'
 
 // import "styles/debug.css";
 
@@ -22,7 +21,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         <title>Carbon</title>
         <link rel="icon" href="/favicon.ico" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap"
           rel="stylesheet"
         />
         <link
@@ -30,15 +29,11 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
           rel="stylesheet"
         />
       </Head>
-      <MDXProvider
-        components={{
-          h1: H1,
-          pre: props => <div {...props} />,
-          code: CodeBlock,
-        }}
-      >
-        <Component {...pageProps} />
-      </MDXProvider>
+      <div tw="min-h-screen font-sans antialiased break-words text-sky-black bg-sky-gray-100">
+        <MdxWrapper>
+          <Component {...pageProps} />
+        </MdxWrapper>
+      </div>
     </div>
   )
 }

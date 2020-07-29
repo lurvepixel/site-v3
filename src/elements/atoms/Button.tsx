@@ -15,7 +15,11 @@ const Button = styled.button<ButtonProps>(({ fullWidth = false, kind = 'default'
     accent: tw`bg-sky-blue-700 text-white`,
   }
 
-  return [tw`px-3 py-2 rounded font-semibold`, fullWidth && tw`w-full`, kindMap[kind]]
+  return [
+    tw`px-3 py-2 rounded font-semibold uppercase tracking-wide text-sm`,
+    fullWidth && tw`w-full`,
+    kindMap[kind],
+  ]
 })
 
 export default Button

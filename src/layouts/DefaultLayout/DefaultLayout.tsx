@@ -1,15 +1,25 @@
 import 'twin.macro'
+import Link from 'elements/atoms/Link'
 
 const DefaultLayout: React.FC = ({ children }) => {
   return (
-    <div tw="min-h-screen font-sans antialiased break-words text-sky-black bg-sky-gray-100">
-      <header tw="border-b bg-sky-gray-300 py-3">
+    <>
+      <header tw="py-3">
         <div tw="container mx-auto">
-          <nav>heading</nav>
+          <nav tw="text-lg">
+            <ul tw="flex justify-end">
+              <li tw="mr-6">
+                <Link href="/blog">Blog</Link>
+              </li>
+              <li>
+                <Link href="/">About</Link>
+              </li>
+            </ul>
+          </nav>
         </div>
       </header>
       <main>{children}</main>
-    </div>
+    </>
   )
 }
 

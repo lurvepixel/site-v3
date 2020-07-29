@@ -10,12 +10,14 @@ const NotFound: NextPage = () => {
   return (
     <SimpleLayout>
       <Seo title="Not found" />
-      <div tw="container mx-auto">
-        <H1>Not found</H1>
-        <p>
-          The page you&apos;ve requested does not exist. Let&apos;s head{' '}
-          <Link href="/">back to home</Link>.
-        </p>
+      <div tw="flex items-center justify-center h-screen">
+        <div tw="pb-24 text-center">
+          <H1>Welp, we looked everywhere...</H1>
+          <p tw="text-lg">
+            The page you&apos;ve requested does not exist. Let&apos;s head{' '}
+            <Link href="/">back to home</Link>.
+          </p>
+        </div>
       </div>
     </SimpleLayout>
   )
