@@ -2,9 +2,10 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 
 import 'tailwindcss/dist/base.min.css'
-
 import tw, { css, theme } from 'twin.macro'
-import MdxWrapper from 'elements/MdxWrapper'
+
+import { MdxWrapper } from 'elements/mdx-wrapper'
+import { FC } from 'common/types'
 
 // import "styles/debug.css";
 
@@ -14,7 +15,7 @@ import MdxWrapper from 'elements/MdxWrapper'
  * or to add global context providers
  */
 
-const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <div>
       <Head>

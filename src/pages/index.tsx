@@ -4,7 +4,7 @@ import 'twin.macro'
 
 import DefaultLayout from 'layouts/DefaultLayout'
 import Seo from 'elements/Seo'
-import Button from 'elements/atoms/Button'
+import { Button } from 'elements/atoms/button'
 import { H1 } from 'elements/atoms/headings'
 
 const Home: NextPage<{ code: string }> = ({ code }) => {

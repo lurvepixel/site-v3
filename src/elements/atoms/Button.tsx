@@ -9,17 +9,17 @@ interface ButtonProps {
   kind?: ButtonKind
 }
 
-const Button = styled.button<ButtonProps>(({ fullWidth = false, kind = 'default' }) => {
-  const kindMap: Record<ButtonKind, any> = {
-    default: tw`text-sky-blue-700 bg-sky-blue-300`,
-    accent: tw`bg-sky-blue-700 text-white`,
+export const Button = styled.button<ButtonProps>(
+  ({ fullWidth = false, kind = 'default' }) => {
+    const kindMap: Record<ButtonKind, any> = {
+      default: tw`text-sky-blue-700 bg-sky-blue-300`,
+      accent: tw`bg-sky-blue-700 text-white`,
+    }
+
+    return [
+      tw`px-3 py-2 rounded font-semibold uppercase tracking-wide text-sm`,
+      fullWidth && tw`w-full`,
+      kindMap[kind],
+    ]
   }
-
-  return [
-    tw`px-3 py-2 rounded font-semibold uppercase tracking-wide text-sm`,
-    fullWidth && tw`w-full`,
-    kindMap[kind],
-  ]
-})
-
-export default Button
+)

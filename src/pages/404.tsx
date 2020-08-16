@@ -4,7 +4,7 @@ import 'twin.macro'
 import SimpleLayout from 'layouts/SimpleLayout'
 import Seo from 'elements/Seo'
 import { H1 } from 'elements/atoms/headings'
-import Link from 'elements/atoms/Link'
+import { Link } from 'elements/atoms/link'
 
 const NotFound: NextPage = () => {
   return (

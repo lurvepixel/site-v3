@@ -1,6 +1,7 @@
 import 'twin.macro'
+import { FC, WC } from 'common/types'
 
-const SimpleLayout: React.FC = ({ children }) => {
+const SimpleLayout: FC<WC> = ({ children }) => {
   return (
     <div>
       <main>{children}</main>

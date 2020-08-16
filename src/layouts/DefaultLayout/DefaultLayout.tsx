@@ -1,7 +1,9 @@
 import 'twin.macro'
-import Link from 'elements/atoms/Link'
 
-const DefaultLayout: React.FC = ({ children }) => {
+import { Link } from 'elements/atoms/link'
+import { FC, WC } from 'common/types'
+
+const DefaultLayout: FC<WC> = ({ children }) => {
   return (
     <>
       <header tw="py-3">

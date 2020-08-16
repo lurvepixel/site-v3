@@ -2,10 +2,11 @@ import 'twin.macro'
 import { MDXProvider } from '@mdx-js/react'
 
 import { H1 } from 'elements/atoms/headings'
-import CodeBlock from 'elements/CodeBlock'
-import { ActualLink } from 'elements/atoms/Link'
+import { CodeBlock } from 'elements/code-block'
+import { ActualLink } from 'elements/atoms/link'
+import { FC, WC } from 'common/types'
 
-const MdxWrapper: React.FC = ({ children }) => {
+export const MdxWrapper: FC<WC> = ({ children }) => {
   return (
     <MDXProvider
       components={{
@@ -21,13 +22,13 @@ const MdxWrapper: React.FC = ({ children }) => {
   )
 }
 
-const WrapperEl: React.FC<{
+const WrapperEl: FC<WC<{
   meta?: {
     created?: string
   }
-}> = ({ meta = {}, ...props }) => <div tw="container mx-auto" {...props} />
+}>> = ({ meta = {}, ...props }) => <div tw="container mx-auto" {...props} />
 
-const InlineCode: React.FC = props => (
+const InlineCode: FC<WC> = props => (
   <code
     tw="rounded font-mono text-sm"
     style={{
@@ -41,6 +42,4 @@ const InlineCode: React.FC = props => (
   />
 )
 
-const Pre: React.FC = props => <div {...props} />
-
-export default MdxWrapper
+const Pre: FC = props => <div {...props} />
