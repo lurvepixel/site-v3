@@ -1,7 +1,5 @@
 import { useSpring } from '@react-spring/web'
 
-const useAnimate = () => {
+export const useAnimate = () => {
   useSpring(() => {})
 }
-
-export default useAnimate

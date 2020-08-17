@@ -6,6 +6,7 @@ import tw, { css, theme } from 'twin.macro'
 
 import { MdxWrapper } from 'elements/mdx-wrapper'
 import { FC } from 'common/types'
+import { GlobalThemeProvider } from 'services/theme-context'
 
 // import "styles/debug.css";
 
@@ -31,9 +32,11 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         />
       </Head>
       <div tw="min-h-screen font-sans antialiased break-words text-sky-black bg-sky-gray-100">
-        <MdxWrapper>
-          <Component {...pageProps} />
-        </MdxWrapper>
+        <GlobalThemeProvider>
+          <MdxWrapper>
+            <Component {...pageProps} />
+          </MdxWrapper>
+        </GlobalThemeProvider>
       </div>
     </div>
   )

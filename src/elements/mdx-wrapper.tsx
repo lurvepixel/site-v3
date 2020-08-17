@@ -1,7 +1,7 @@
 import 'twin.macro'
 import { MDXProvider } from '@mdx-js/react'
 
-import { H1 } from 'elements/atoms/headings'
+import { Heading } from 'elements/atoms/headings'
 import { CodeBlock } from 'elements/code-block'
 import { ActualLink } from 'elements/atoms/link'
 import { FC, WC } from 'common/types'
@@ -11,8 +11,9 @@ export const MdxWrapper: FC<WC> = ({ children }) => {
     <MDXProvider
       components={{
         wrapper: WrapperEl as React.ComponentType<{ children: React.ReactNode }>,
-        h1: H1,
+        h1: Heading.H1,
         a: ActualLink,
+        p: props => <p tw="leading-relaxed text-lg" {...props} />,
         inlineCode: InlineCode,
         pre: Pre,
         code: CodeBlock as React.ComponentType<{ children: React.ReactNode }>,
