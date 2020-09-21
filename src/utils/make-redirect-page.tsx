@@ -2,7 +2,7 @@ import { Component } from 'react'
 import Router from 'next/router'
 
 // From https://github.com/pablopunk/nextjs-redirect/blob/master/src/index.tsx
-export default (redirectUrl: string, statusCode = 301) =>
+export const makeRedirectPage = (redirectUrl: string, statusCode = 301) =>
   class extends Component {
     static async getInitialProps({ res }) {
       if (res) {
@@ -14,6 +14,7 @@ export default (redirectUrl: string, statusCode = 301) =>
 
       return {}
     }
+
     render() {
       return null
     }
