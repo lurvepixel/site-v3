@@ -2,10 +2,10 @@ import { useState } from 'react'
 import { NextPage } from 'next'
 import 'twin.macro'
 
-import DefaultLayout from 'layouts/DefaultLayout'
-import Seo from 'elements/Seo'
-import { Button } from 'elements/atoms/button'
-import { Heading } from 'elements/atoms/headings'
+import DefaultLayout from '@/layouts/DefaultLayout'
+import Seo from '@/elements/Seo'
+import { Button } from '@/elements/atoms/button'
+import { Heading } from '@/elements/atoms/headings'
 
 const Home: NextPage<{ code: string }> = ({ code }) => {
   const [counter, setCounter] = useState(0)

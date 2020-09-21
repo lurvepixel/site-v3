@@ -1,5 +1,6 @@
 import 'twin.macro'
-import { FC, WC } from 'common/types'
+
+import { FC, WC } from '@/common/types'
 
 const SimpleLayout: FC<WC> = ({ children }) => {
   return (

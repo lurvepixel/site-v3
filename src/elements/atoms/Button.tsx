@@ -1,6 +1,6 @@
 import tw, { styled } from 'twin.macro'
 
-import { Kind } from 'styles'
+import { Kind } from '@/styles'
 
 type ButtonKind = Extract<Kind, 'default' | 'accent'>
 

@@ -4,7 +4,8 @@ import Highlight, {
 } from 'prism-react-renderer'
 import syntaxTheme from 'prism-react-renderer/themes/nightOwl'
 import tw, { css } from 'twin.macro'
-import { FC, WC } from 'common/types'
+
+import { FC, WC } from '@/common/types'
 
 export const CodeBlock: FC<WC<{ className?: string }>> = ({ children, className = '' }) => {
   const lang = String(className).replace(/language-/, '')

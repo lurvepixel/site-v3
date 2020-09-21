@@ -4,9 +4,9 @@ import Head from 'next/head'
 import 'tailwindcss/dist/base.min.css'
 import tw, { css, theme } from 'twin.macro'
 
-import { MdxWrapper } from 'elements/mdx-wrapper'
-import { FC } from 'common/types'
-import { GlobalThemeProvider } from 'services/theme-context'
+import { FC } from '@/common/types'
+import { GlobalThemeProvider } from '@/services/theme-context'
+import { MdxWrapper } from '@/elements/mdx-wrapper'
 
 // import "styles/debug.css";
 
