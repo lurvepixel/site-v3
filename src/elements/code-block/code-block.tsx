@@ -14,7 +14,7 @@ export const CodeBlock: FC<WC<{ className?: string }>> = ({ children, className 
     <Highlight
       {...prismDefaultProps}
       theme={syntaxTheme}
-      code={children.toString().trim()}
+      code={children?.toString().trim() ?? ''}
       language={lang as Language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (

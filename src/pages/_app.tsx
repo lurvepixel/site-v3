@@ -2,7 +2,7 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 
 import 'tailwindcss/dist/base.min.css'
-import tw, { css, theme } from 'twin.macro'
+import 'twin.macro'
 
 import { FC } from '@/common/types'
 import { GlobalThemeProvider } from '@/services/theme-context'
