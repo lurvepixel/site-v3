@@ -2,8 +2,8 @@ import 'twin.macro'
 import { MDXProvider } from '@mdx-js/react'
 
 import { Heading } from '@/elements/atoms/headings'
-import { CodeBlock } from '@/elements/code-block'
 import { ActualLink } from '@/elements/atoms/link'
+import { CodeBlock } from '@/elements/code-block'
 import { FC, WC } from '@/common/types'
 
 export const MdxWrapper: FC<WC> = ({ children }) => {
