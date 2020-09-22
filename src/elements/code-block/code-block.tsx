@@ -38,5 +38,3 @@ export const CodeBlock: FC<WC<{ className?: string }>> = ({ children, className 
     </Highlight>
   )
 }
-
-export default CodeBlock
