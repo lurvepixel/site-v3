@@ -1,19 +1,33 @@
 import 'twin.macro'
-import { useApp, Stage, Sprite } from '@inlet/react-pixi'
+import { useApp, Stage, Sprite } from '@inlet/react-pixi/animated'
+import { useSpring } from '@react-spring/web'
 
 import { FC, WC } from '@/common/types'
 
 const Canvas: FC = () => {
   const app = useApp()
 
+  const style = useSpring({
+    from: {
+      x: app.renderer.width / 2 - 20,
+      y: app.renderer.height / 2 - 20,
+    },
+    to: {
+      x: app.renderer.width / 2 + 20,
+      y: app.renderer.height / 2 + 20,
+    },
+    loop: { reverse: true },
+  })
+
+  // FIXME types in pixi/animated
   return (
     <>
       <Sprite
         image="https://s3-us-west-2.amazonaws.com/s.cdpn.io/693612/coin.png"
         scale={{ x: 0.5, y: 0.5 }}
         anchor={0.5}
-        x={app.renderer.width / 2}
-        y={app.renderer.height / 2}
+        x={style.x}
+        y={style.y}
       />
     </>
   )
