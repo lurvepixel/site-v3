@@ -1,7 +1,7 @@
+import tw, { styled } from 'twin.macro'
 import { forwardRef } from 'react'
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
 import { useRouter } from 'next/router'
-import tw, { styled } from 'twin.macro'
 
 interface LinkProps extends NextLinkProps {
   children?: React.ReactNode

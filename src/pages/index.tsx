@@ -1,6 +1,6 @@
+import 'twin.macro'
 import { useState } from 'react'
 import { NextPage } from 'next'
-import 'twin.macro'
 
 import { DefaultLayout } from '@/layouts/default-layout'
 import { Seo } from '@/elements/seo'

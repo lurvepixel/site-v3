@@ -1,9 +1,9 @@
+import tw, { css } from 'twin.macro'
 import Highlight, {
   defaultProps as prismDefaultProps,
   Language,
 } from 'prism-react-renderer'
 import syntaxTheme from 'prism-react-renderer/themes/nightOwl'
-import tw, { css } from 'twin.macro'
 
 import { FC, WC } from '@/common/types'
 

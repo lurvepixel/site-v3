@@ -1,5 +1,5 @@
-import { NextPage } from 'next'
 import 'twin.macro'
+import { NextPage } from 'next'
 
 import { SimpleLayout } from '@/layouts/simple-layout'
 import { Seo } from '@/elements/seo'
