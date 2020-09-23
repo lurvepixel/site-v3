@@ -8,7 +8,8 @@ import { FC } from '@/common/types'
 import { GlobalThemeProvider } from '@/services/theme-context'
 import { MdxWrapper } from '@/elements/mdx-wrapper'
 
-// import "styles/debug.css";
+import '@/styles/global.css'
+// import "@/styles/debug.css";
 
 /**
  * Use this if you want to make initial setup,
@@ -22,14 +23,6 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
       <Head>
         <title>Carbon</title>
         <link rel="icon" href="/favicon.ico" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap"
-          rel="stylesheet"
-        />
       </Head>
       <div tw="min-h-screen font-sans antialiased break-words text-sky-black bg-sky-gray-100">
         <GlobalThemeProvider>

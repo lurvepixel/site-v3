@@ -9,7 +9,11 @@ module.exports = {
     },
     extend: {
       fontFamily: {
+        // body copy
         sans: ['Work Sans', ...defaultTheme.fontFamily.sans],
+        // display copy
+        display: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
+        // monospaced
         mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
       },
       colors: {
