@@ -15,10 +15,8 @@ const Home: NextPage<{ code: string }> = ({ code }) => {
       <Seo title="Home" />
       <div tw="container mx-auto">
         <div tw="py-16">
-          <Heading.H1 tw="text-6xl leading-none">Ajit Singh</Heading.H1>
-          <Heading.H1 tw="text-6xl leading-none">
-            How did we designed latest carbon
-          </Heading.H1>
+          <Heading.H1>Ajit Singh</Heading.H1>
+          <Heading.H1>How did we designed latest carbon</Heading.H1>
           <div>
             <p tw="mt-2 text-lg">This guy makes and breaks stuff, mostly apps.</p>
           </div>

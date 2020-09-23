@@ -12,6 +12,8 @@ export const MdxWrapper: FC<WC> = ({ children }) => {
       components={{
         wrapper: WrapperEl as React.ComponentType<{ children: React.ReactNode }>,
         h1: Heading.H1,
+        h2: Heading.H2,
+        h3: Heading.H3,
         a: ActualLink,
         p: props => <p tw="leading-relaxed text-lg" {...props} />,
         inlineCode: InlineCode,
