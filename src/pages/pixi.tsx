@@ -13,9 +13,8 @@ const Pixi: NextPage<{ code: string }> = ({ code }) => {
   return (
     <DefaultLayout>
       <Seo title="Trying out Pixi" />
-      <div tw="container mx-auto">
-        <PixiPg />
-      </div>
+      <PixiPg />
+      <div tw="container mx-auto"></div>
     </DefaultLayout>
   )
 }
