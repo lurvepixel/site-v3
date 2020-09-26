@@ -13,15 +13,17 @@ import {
 import { useEffect, useRef } from 'react'
 
 export const PtsStuff = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const canvasContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (canvas == null) return
+    const canvasContainer = canvasContainerRef.current
+    if (canvasContainer == null) return
 
-    // canvas. = 500
+    // fast-refresh re-runs this effect so Pts lib inserts new canvas el
+    // inside it, clearing out fixes it.
+    canvasContainer.innerHTML = ''
 
-    const space = new CanvasSpace(canvas)
+    const space = new CanvasSpace(canvasContainer)
       .setup({ bgcolor: (theme`colors.sky.gray-100` as unknown) as string })
       // .bindMouse()
       // .bindTouch()
@@ -39,27 +41,30 @@ export const PtsStuff = () => {
         space.center.y,
         50
       ) */
-      const grad = space.ctx.createLinearGradient(
-        space.center.x - 40,
-        space.center.y + 40,
-        space.center.x + 40,
-        space.center.y - 40
+      const gradToTopRight = space.ctx.createLinearGradient(
+        space.center.x - 80,
+        space.center.y + 80,
+        space.center.x + 80,
+        space.center.y - 80
       )
-      grad.addColorStop(0, '#c15d2b')
-      grad.addColorStop(0.3, '#c8aa6d')
-      grad.addColorStop(0.7, '#ece9c8')
-      grad.addColorStop(1, '#ad3dab')
+      gradToTopRight.addColorStop(0, '#c15d2bdd')
+      gradToTopRight.addColorStop(1, '#ad3dabdd')
 
-      /*
-        #c15d2b bottom left
-        #c8aa6d
-        #ece9c8
-        #ad3dab top right
-      */
+      const gradToBottomRight = space.ctx.createLinearGradient(
+        space.center.x - 80,
+        space.center.y - 80,
+        space.center.x + 80,
+        space.center.y + 80
+      )
+      gradToBottomRight.addColorStop(0, '#c8aa6d66')
+      gradToBottomRight.addColorStop(1, '#ece9c866')
 
       // form.fill(grad).rect(space.innerBound)
-      const circ = Circle.fromCenter(space.center, 50)
-      form.fill(grad).circle(circ)
+      const circ1 = Circle.fromCenter(space.center, 80 * 2)
+      form.fill(gradToTopRight).circle(circ1)
+
+      const circ2 = Circle.fromCenter(space.center, 80 * 2)
+      form.fill(gradToBottomRight).circle(circ2)
     })
 
     return () => {
@@ -67,7 +72,17 @@ export const PtsStuff = () => {
     }
   }, [])
 
-  return <canvas ref={canvasRef} tw="border" />
+  return (
+    <div tw="border-2 inline-block">
+      <div
+        ref={canvasContainerRef}
+        css={css`
+          height: 480px;
+          width: 480px;
+        `}
+      />
+    </div>
+  )
 }
 
 /* 
