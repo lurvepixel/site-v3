@@ -9,11 +9,33 @@ import {
   Circle,
   Group,
 } from 'pts'
+import { useSpring } from 'react-spring'
 
 import { useEffect, useRef } from 'react'
 
 export const PtsStuff = () => {
   const canvasContainerRef = useRef<HTMLDivElement>(null)
+
+  const xRef = useRef<number>(0)
+
+  useSpring({
+    from: {
+      x: 0,
+    },
+    x: 160,
+    loop: {
+      reverse: true,
+    },
+    config: {
+      damping: 1,
+      frequency: 0.4,
+    },
+    onChange: {
+      x(v: number) {
+        xRef.current = v
+      },
+    },
+  })
 
   useEffect(() => {
     const canvasContainer = canvasContainerRef.current
@@ -30,40 +52,34 @@ export const PtsStuff = () => {
       .play()
     const form = space.getForm()
 
+    const gradToTopRight = space.ctx.createLinearGradient(
+      space.center.x - 80,
+      space.center.y + 80,
+      space.center.x + 80,
+      space.center.y - 80
+    )
+    gradToTopRight.addColorStop(0, '#c15d2bdd')
+    gradToTopRight.addColorStop(1, '#ad3dabdd')
+
+    const gradToBottomRight = space.ctx.createLinearGradient(
+      space.center.x - 80,
+      space.center.y - 80,
+      space.center.x + 80,
+      space.center.y + 80
+    )
+    gradToBottomRight.addColorStop(0, '#c8aa6d66')
+    gradToBottomRight.addColorStop(1, '#ece9c866')
+
     space.add((time, ftime) => {
       if (time == null) return
 
-      /* const grad = space.ctx.createRadialGradient(
-        space.center.x,
-        space.center.y,
-        0,
-        space.center.x,
-        space.center.y,
-        50
-      ) */
-      const gradToTopRight = space.ctx.createLinearGradient(
-        space.center.x - 80,
-        space.center.y + 80,
-        space.center.x + 80,
-        space.center.y - 80
-      )
-      gradToTopRight.addColorStop(0, '#c15d2bdd')
-      gradToTopRight.addColorStop(1, '#ad3dabdd')
-
-      const gradToBottomRight = space.ctx.createLinearGradient(
-        space.center.x - 80,
-        space.center.y - 80,
-        space.center.x + 80,
-        space.center.y + 80
-      )
-      gradToBottomRight.addColorStop(0, '#c8aa6d66')
-      gradToBottomRight.addColorStop(1, '#ece9c866')
-
       // form.fill(grad).rect(space.innerBound)
-      const circ1 = Circle.fromCenter(space.center, 80 * 2)
+      // const circ1 = Circle.fromCenter(space.center, 80 * 2)
+      const circ1 = Circle.fromCenter(space.center, xRef.current)
       form.fill(gradToTopRight).circle(circ1)
 
-      const circ2 = Circle.fromCenter(space.center, 80 * 2)
+      // const circ2 = Circle.fromCenter(space.center, 80 * 2)
+      const circ2 = Circle.fromCenter(space.center, (xRef.current + 40) * 1.2)
       form.fill(gradToBottomRight).circle(circ2)
     })
 
