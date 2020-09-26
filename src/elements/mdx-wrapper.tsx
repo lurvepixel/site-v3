@@ -4,6 +4,7 @@ import { MDXProvider } from '@mdx-js/react'
 import { Heading } from '@/elements/atoms/headings'
 import { ActualLink } from '@/elements/atoms/link'
 import { CodeBlock } from '@/elements/code-block'
+import lightTheme from '@/elements/code-block/customizedNightOwlLight'
 import { FC, WC } from '@/common/types'
 import { font } from '@/styles'
 
@@ -62,8 +63,9 @@ const InlineCode: FC<WC> = props => (
       // background: '#011627',
       // color: '#d6deeb',
       // Night Owl Light
-      background: '#edf2f7',
-      color: '#403f53',
+
+      color: lightTheme.plain.color,
+      background: lightTheme.plain.backgroundColor,
     }}
     {...props}
   />
