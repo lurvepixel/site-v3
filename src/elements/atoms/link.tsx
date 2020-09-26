@@ -28,14 +28,8 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     const nextLinkProps = { href, as, passHref, prefetch, replace, scroll, shallow }
 
     return (
-      <NextLink {...nextLinkProps}>
-        <ActualLink
-          {...fowardedLinkProps}
-          active={active}
-          ref={ref}
-          tabIndex={0}
-          children={children}
-        />
+      <NextLink {...nextLinkProps} passHref>
+        <ActualLink {...fowardedLinkProps} {...{ active, ref, children }} />
       </NextLink>
     )
   }
