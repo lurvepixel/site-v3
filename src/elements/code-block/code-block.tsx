@@ -1,9 +1,10 @@
-import tw, { css } from 'twin.macro'
+import tw, { css, theme as twTheme } from 'twin.macro'
 import Highlight, {
   defaultProps as prismDefaultProps,
   Language,
 } from 'prism-react-renderer'
-import syntaxTheme from 'prism-react-renderer/themes/nightOwl'
+import darksyntaxTheme from 'prism-react-renderer/themes/nightOwl'
+import lightsyntaxTheme from 'prism-react-renderer/themes/nightOwlLight'
 
 import { FC, WC } from '@/common/types'
 import { font } from '@/styles'
@@ -14,7 +15,7 @@ export const CodeBlock: FC<WC<{ className?: string }>> = ({ children, className 
   return (
     <Highlight
       {...prismDefaultProps}
-      theme={syntaxTheme}
+      theme={lightsyntaxTheme}
       code={children?.toString().trim() ?? ''}
       language={lang as Language}
     >
@@ -26,7 +27,11 @@ export const CodeBlock: FC<WC<{ className?: string }>> = ({ children, className 
             max-width: 768px;
           `}
           className={className}
-          style={{ ...style, padding: '20px' }}
+          style={{
+            ...style,
+            padding: '20px',
+            backgroundColor: (twTheme`colors.gray.200` as unknown) as string,
+          }}
         >
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>

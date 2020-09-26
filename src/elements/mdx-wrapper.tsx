@@ -59,8 +59,11 @@ const InlineCode: FC<WC> = props => (
       ...(props['style'] ?? {}),
       padding: '2px 4px',
       // Night Owl
-      background: '#011627',
-      color: '#d6deeb',
+      // background: '#011627',
+      // color: '#d6deeb',
+      // Night Owl Light
+      background: '#edf2f7',
+      color: '#403f53',
     }}
     {...props}
   />
