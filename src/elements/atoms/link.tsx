@@ -15,9 +15,27 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     const active =
       props.as != null ? props.as === router.pathname : props.href === router.pathname
 
+    const {
+      href,
+      as,
+      passHref,
+      prefetch,
+      replace,
+      scroll,
+      shallow,
+      ...fowardedLinkProps
+    } = props
+    const nextLinkProps = { href, as, passHref, prefetch, replace, scroll, shallow }
+
     return (
-      <NextLink {...props}>
-        <ActualLink active={active} ref={ref} tabIndex={0} children={children} />
+      <NextLink {...nextLinkProps}>
+        <ActualLink
+          {...fowardedLinkProps}
+          active={active}
+          ref={ref}
+          tabIndex={0}
+          children={children}
+        />
       </NextLink>
     )
   }

@@ -15,7 +15,10 @@ const NotFound: NextPage = () => {
           <Heading.H1>Welp, we looked everywhere...</Heading.H1>
           <p tw="text-lg">
             The page you&apos;ve requested does not exist. Let&apos;s head{' '}
-            <Link href="/">back to home</Link>.
+            <Link tw="text-base" href="/">
+              back to home
+            </Link>
+            .
           </p>
         </div>
       </div>
