@@ -1,4 +1,4 @@
-import tw, { styled } from 'twin.macro'
+import tw, { styled, css } from 'twin.macro'
 
 import { font, Kind } from '@/styles'
 
@@ -12,8 +12,8 @@ interface ButtonProps {
 export const Button = styled.button<ButtonProps>(
   ({ fullWidth = false, kind = 'default' }) => {
     const kindMap: Record<ButtonKind, any> = {
-      default: tw`text-sky-black bg-sky-gray-300 border-b-2 border-sky-gray-500`,
-      accent: tw`bg-sky-black text-white`,
+      default: tw`text-sky-black bg-white border border-gray-300`,
+      accent: tw`bg-sky-black text-white border border-sky-black`,
     }
 
     return [

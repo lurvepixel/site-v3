@@ -25,7 +25,9 @@ const Home: NextPage<{ code: string }> = ({ code }) => {
         </div>
         <p>
           {counter}
-          <Button onClick={() => setCounter(c => c + 6)}>Create an account Login</Button>
+          <Button kind="default" onClick={() => setCounter(c => c + 6)}>
+            Create an account Login
+          </Button>
           nxdcndj
         </p>
       </div>
