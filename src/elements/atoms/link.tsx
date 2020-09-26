@@ -3,6 +3,8 @@ import { forwardRef } from 'react'
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
 import { useRouter } from 'next/router'
 
+import { font } from '@/styles'
+
 interface LinkProps extends NextLinkProps {
   children?: React.ReactNode
 }
@@ -22,6 +24,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 )
 
 export const ActualLink = styled.a<{ active?: boolean }>(({ active = false }) => [
-  tw`text-sky-blue-700 cursor-pointer`,
-  active && tw`text-blue-700`,
+  font.monoBold,
+  tw`text-sm text-sky-black cursor-pointer border-b-2 border-gray-500`,
+  active && tw`border-gray-400`,
 ])

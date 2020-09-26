@@ -12,10 +12,12 @@ export const DefaultLayout: FC<WC> = ({ children }) => {
           <nav tw="text-lg">
             <ul
               css={css`
-                ${font.mono}
                 ${tw`flex justify-end`}
               `}
             >
+              <li tw="mr-6">
+                <Link href="/experiments">Experiments</Link>
+              </li>
               <li tw="mr-6">
                 <Link href="/blog">Blog</Link>
               </li>
