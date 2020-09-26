@@ -13,7 +13,6 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@next/mdx": "^9.4.4",
-    "@react-spring/web": "^9.0.0-rc.3",
     "ky": "^0.23.0",
     "ky-universal": "^0.8.1",
     "next": "^9.5.3",
@@ -21,6 +20,7 @@
     "pts": "^0.9.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-spring": "^9.0.0-rc.3",
     "rematrix": "^0.7.0"
   },
   "devDependencies": {
