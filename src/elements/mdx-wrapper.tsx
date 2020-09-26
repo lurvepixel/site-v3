@@ -1,10 +1,11 @@
-import 'twin.macro'
+import tw, { css } from 'twin.macro'
 import { MDXProvider } from '@mdx-js/react'
 
 import { Heading } from '@/elements/atoms/headings'
 import { ActualLink } from '@/elements/atoms/link'
 import { CodeBlock } from '@/elements/code-block'
 import { FC, WC } from '@/common/types'
+import { font } from '@/styles'
 
 export const MdxWrapper: FC<WC> = ({ children }) => {
   return (
@@ -15,7 +16,7 @@ export const MdxWrapper: FC<WC> = ({ children }) => {
         h2: Heading.H2,
         h3: Heading.H3,
         a: ActualLink,
-        p: props => <p tw="leading-relaxed text-lg" {...props} />,
+        p: props => <p tw="leading-normal text-lg" {...props} />,
         inlineCode: InlineCode,
         pre: Pre,
         code: CodeBlock as React.ComponentType<{ children: React.ReactNode }>,
@@ -29,11 +30,31 @@ const WrapperEl: FC<WC<{
   meta?: {
     created?: string
   }
-}>> = ({ meta = {}, ...props }) => <div tw="container mx-auto" {...props} />
+}>> = ({ meta = {}, ...props }) => (
+  <div
+    css={css`
+      ${tw`container mx-auto`}
+
+      /* TODO insert into tailwind as container-content */
+      /* TODO selection color + in input too */
+      @media (min-width: 1024px) {
+        max-width: 768px;
+      }
+
+      @media (min-width: 1280px) {
+        max-width: 768px;
+      }
+    `}
+    {...props}
+  />
+)
 
 const InlineCode: FC<WC> = props => (
   <code
-    tw="rounded font-mono text-sm"
+    css={css`
+      ${font.mono}
+      ${tw`rounded text-sm`}
+    `}
     style={{
       ...(props['style'] ?? {}),
       padding: '2px 4px',

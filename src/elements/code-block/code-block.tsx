@@ -6,6 +6,7 @@ import Highlight, {
 import syntaxTheme from 'prism-react-renderer/themes/nightOwl'
 
 import { FC, WC } from '@/common/types'
+import { font } from '@/styles'
 
 export const CodeBlock: FC<WC<{ className?: string }>> = ({ children, className = '' }) => {
   const lang = String(className).replace(/language-/, '')
@@ -20,7 +21,8 @@ export const CodeBlock: FC<WC<{ className?: string }>> = ({ children, className 
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
           css={css`
-            ${tw`block overflow-auto rounded px-5 py-3 font-mono`}
+            ${tw`block overflow-auto rounded px-5 py-3`}
+            ${font.mono}
             max-width: 768px;
           `}
           className={className}

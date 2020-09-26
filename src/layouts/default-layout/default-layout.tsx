@@ -1,7 +1,8 @@
-import 'twin.macro'
+import tw, { css } from 'twin.macro'
 
-import { Link } from '@/elements/atoms/link'
 import { FC, WC } from '@/common/types'
+import { font } from '@/styles'
+import { Link } from '@/elements/atoms/link'
 
 export const DefaultLayout: FC<WC> = ({ children }) => {
   return (
@@ -9,7 +10,12 @@ export const DefaultLayout: FC<WC> = ({ children }) => {
       <header tw="py-3">
         <div tw="container mx-auto">
           <nav tw="text-lg">
-            <ul tw="flex justify-end">
+            <ul
+              css={css`
+                ${font.mono}
+                ${tw`flex justify-end`}
+              `}
+            >
               <li tw="mr-6">
                 <Link href="/blog">Blog</Link>
               </li>

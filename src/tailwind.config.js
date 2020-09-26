@@ -6,15 +6,16 @@ module.exports = {
     fontWeight: {
       normal: 400,
       semibold: 600,
+      bold: 700,
     },
     extend: {
       fontFamily: {
-        // body copy
-        sans: ['Work Sans', ...defaultTheme.fontFamily.sans],
         // display copy
         display: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
+        // serif (body copy)
+        serif: ['Source Serif Pro', ...defaultTheme.fontFamily.serif],
         // monospaced
-        mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
+        mono: ['iA Writer Mono S', ...defaultTheme.fontFamily.mono],
       },
       colors: {
         sky: {

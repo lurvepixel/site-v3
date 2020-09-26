@@ -2,10 +2,11 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 
 import 'tailwindcss/dist/base.min.css'
-import 'twin.macro'
+import tw, { css } from 'twin.macro'
 
 import { FC } from '@/common/types'
 import { GlobalThemeProvider } from '@/services/theme-context'
+import { font } from '@/styles'
 import { MdxWrapper } from '@/elements/mdx-wrapper'
 
 import '@/styles/global.css'
@@ -24,7 +25,12 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         <title>Carbon</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div tw="min-h-screen font-sans antialiased break-words text-sky-black bg-sky-gray-100">
+      <div
+        css={css`
+          ${tw`min-h-screen antialiased break-words text-sky-black bg-sky-gray-100`}
+          ${font.serif}
+        `}
+      >
         <GlobalThemeProvider>
           <MdxWrapper>
             <Component {...pageProps} />

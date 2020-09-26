@@ -1,3 +1,12 @@
+import tw from 'twin.macro'
+
+export const font = {
+  display: tw`font-display font-semibold`,
+  serif: tw`font-serif`,
+  mono: tw`font-mono`,
+  monoBold: tw`font-mono font-bold`,
+}
+
 export type Theme = 'light' | 'dark'
 
 export type Kind =

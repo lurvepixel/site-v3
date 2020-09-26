@@ -1,6 +1,6 @@
 import tw, { styled } from 'twin.macro'
 
-import { Kind } from '@/styles'
+import { font, Kind } from '@/styles'
 
 type ButtonKind = Extract<Kind, 'default' | 'accent'>
 
@@ -17,7 +17,8 @@ export const Button = styled.button<ButtonProps>(
     }
 
     return [
-      tw`px-3 py-2 rounded font-semibold uppercase tracking-wide text-sm`,
+      font.monoBold,
+      tw`text-sm px-3 py-2 rounded tracking-wide`,
       fullWidth && tw`w-full`,
       kindMap[kind],
     ]
