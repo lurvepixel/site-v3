@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useCallback } from 'react'
+import { createContext, useState, useEffect, useCallback, useLayoutEffect } from 'react'
 
 import { Theme } from '~/styles'
 import { noop } from '~/utils/helpers'
@@ -17,21 +17,22 @@ export const ThemeContext = createContext<ThemeContextShape>({
 
 // slightly modified version of https://gist.github.com/mjackson/05673df9963dd18a7ef6ccc035f07cf0
 export const GlobalThemeProvider: FC<WC> = ({ children }) => {
-  const defaultColorScheme: Theme = 'light'
-
-  const [storedTheme, setStoredTheme] = useLocalStorage<Theme>(
-    'overriden-theme',
-    defaultColorScheme
-  )
-
+  const defaultTheme: Theme = 'light'
   let darkQuery = '(prefers-color-scheme: dark)'
-  let [theme, _setTheme] = useState<Theme>(
-    typeof window === 'object' && window.matchMedia
-      ? window.matchMedia(darkQuery).matches
-        ? 'dark'
-        : 'light'
-      : storedTheme
-  )
+
+  const [initiallyStoredTheme, setStoredTheme] = useLocalStorage<Theme>('overriden-theme')
+  let [theme, _setTheme] = useState<Theme>(defaultTheme)
+
+  // doing this way is necessaary else react will complain that
+  // it found different values on client and server (hydration)
+  useLayoutEffect(() => {
+    if (initiallyStoredTheme == null) {
+      // if user has not customized the theme, use preference, don't set to local storage
+      _setTheme(window.matchMedia(darkQuery).matches ? 'dark' : 'light')
+    } else {
+      _setTheme(initiallyStoredTheme)
+    }
+  }, [initiallyStoredTheme, darkQuery])
 
   const setTheme = useCallback(
     (theme: Theme) => {

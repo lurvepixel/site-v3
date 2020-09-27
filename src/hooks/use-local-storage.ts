@@ -1,6 +1,6 @@
-import { useCallback } from 'react'
+import { useCallback, useRef } from 'react'
 
-export const useLocalStorage = <T>(key: string, defaultValue: T): [T, (v: T) => void] => {
+export const useLocalStorage = <T>(key: string): [T | null, (v: T) => void] => {
   const onBrowser = typeof window === 'object'
 
   const setValue = useCallback(
@@ -10,12 +10,16 @@ export const useLocalStorage = <T>(key: string, defaultValue: T): [T, (v: T) => 
     [key, onBrowser]
   )
 
-  let value = defaultValue
+  const isInitialized = useRef(false)
+  let initialValue = null
 
-  if (onBrowser) {
-    if (localStorage.getItem(key) == null) setValue(defaultValue)
-    else value = JSON.parse(localStorage.getItem(key)!)
+  if (onBrowser && !isInitialized.current) {
+    isInitialized.current = true
+
+    if (localStorage.getItem(key) != null) {
+      initialValue = JSON.parse(localStorage.getItem(key)!)
+    }
   }
 
-  return [value, setValue]
+  return [initialValue, setValue]
 }
