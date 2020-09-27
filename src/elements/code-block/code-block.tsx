@@ -26,8 +26,7 @@ export const CodeBlock: FC<WC<{ className?: string }>> = ({ children, className 
             <div
               css={css`
                 ${font.monoBold}
-                ${tw`inline-block text-sm border border-b-0 text-sky-gray-500 text-right px-3 py-1 rounded leading-none mr-4`}
-                background-color: ${lightsyntaxTheme.plain.backgroundColor}
+                ${tw`relative z-10 -mb-3 inline-block text-sm border text-sky-gray-500 px-3 py-1 rounded leading-none mr-4 bg-sky-gray-100`}
               `}
             >
               {lang.toUpperCase()}

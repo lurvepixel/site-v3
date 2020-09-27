@@ -8,3 +8,5 @@ export const noop = () => {}
 
 // TODO
 export const mergeRefs = () => {}
+
+export const onServer = typeof window !== 'object'

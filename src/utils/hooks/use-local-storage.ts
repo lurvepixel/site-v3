@@ -1,7 +1,8 @@
 import { useCallback, useRef } from 'react'
+import { onServer } from '../helpers'
 
 export const useLocalStorage = <T>(key: string): [T | null, (v: T) => void] => {
-  const onBrowser = typeof window === 'object'
+  const onBrowser = !onServer
 
   const setValue = useCallback(
     (v: T) => {
