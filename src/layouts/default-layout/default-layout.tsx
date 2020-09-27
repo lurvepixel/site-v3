@@ -1,7 +1,6 @@
 import tw, { css } from 'twin.macro'
 
 import { FC, WC } from '~/common/types'
-import { font } from '~/styles'
 import { Link } from '~/elements/atoms/link'
 
 export const DefaultLayout: FC<WC> = ({ children }) => {
