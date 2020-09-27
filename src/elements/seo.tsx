@@ -5,7 +5,7 @@ import { FC } from '~/shared/types'
 export const Seo: FC<{ title: string }> = ({ title }) => {
   return (
     <Head>
-      <title>{title} | Carbon</title>
+      <title>{title} · Ajit Singh</title>
     </Head>
   )
 }

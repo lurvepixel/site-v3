@@ -7,7 +7,7 @@ import { Seo } from '~/elements/seo'
 import { Button } from '~/elements/atoms/button'
 import { Heading } from '~/elements/atoms/headings'
 
-const Home: NextPage<{ code: string }> = () => {
+const Home: NextPage = () => {
   const [counter, setCounter] = useState(0)
 
   return (

@@ -7,7 +7,7 @@ import { Seo } from '~/elements/seo'
 import { Button } from '~/elements/atoms/button'
 import { Heading } from '~/elements/atoms/headings'
 
-const Blog: NextPage<{ code: string }> = ({ code }) => {
+const Blog: NextPage = () => {
   return (
     <DefaultLayout>
       <Seo title="Blog" />
