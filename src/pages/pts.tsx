@@ -3,12 +3,12 @@ import { useEffect, useRef } from 'react'
 import { NextPage } from 'next'
 import dynamic from 'next/dynamic'
 
-import { SimpleLayout } from '@/layouts/simple-layout'
-import { Seo } from '@/elements/seo'
-import { Heading } from '@/elements/atoms/headings'
-import { Link } from '@/elements/atoms/link'
+import { SimpleLayout } from '~/layouts/simple-layout'
+import { Seo } from '~/elements/seo'
+import { Heading } from '~/elements/atoms/headings'
+import { Link } from '~/elements/atoms/link'
 
-const PtsStuff = dynamic(() => import('@/elements/pts-stuff').then(mod => mod.PtsStuff), {
+const PtsStuff = dynamic(() => import('~/elements/pts-stuff').then(mod => mod.PtsStuff), {
   ssr: false,
 })
 

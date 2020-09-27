@@ -3,7 +3,7 @@ import { forwardRef } from 'react'
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
 import { useRouter } from 'next/router'
 
-import { font } from '@/styles'
+import { font } from '~/styles'
 
 interface LinkProps extends NextLinkProps {
   children?: React.ReactNode

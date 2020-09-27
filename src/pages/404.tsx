@@ -1,10 +1,10 @@
 import 'twin.macro'
 import { NextPage } from 'next'
 
-import { SimpleLayout } from '@/layouts/simple-layout'
-import { Seo } from '@/elements/seo'
-import { Heading } from '@/elements/atoms/headings'
-import { Link } from '@/elements/atoms/link'
+import { SimpleLayout } from '~/layouts/simple-layout'
+import { Seo } from '~/elements/seo'
+import { Heading } from '~/elements/atoms/headings'
+import { Link } from '~/elements/atoms/link'
 
 const NotFound: NextPage = () => {
   return (

@@ -4,13 +4,13 @@ import Head from 'next/head'
 import 'tailwindcss/dist/base.min.css'
 import tw, { css } from 'twin.macro'
 
-import { FC } from '@/common/types'
-import { GlobalThemeProvider } from '@/services/theme-context'
-import { font } from '@/styles'
-import { MdxWrapper } from '@/elements/mdx-wrapper'
+import { FC } from '~/common/types'
+import { GlobalThemeProvider } from '~/services/theme-context'
+import { font } from '~/styles'
+import { MdxWrapper } from '~/elements/mdx-wrapper'
 
-import '@/styles/global.css'
-// import "@/styles/debug.css";
+import '~/styles/global.css'
+// import "~/styles/debug.css";
 
 /**
  * Use this if you want to make initial setup,

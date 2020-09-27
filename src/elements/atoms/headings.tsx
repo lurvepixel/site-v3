@@ -1,6 +1,6 @@
 import tw, { styled } from 'twin.macro'
 
-import { font } from '@/styles'
+import { font } from '~/styles'
 
 export const Heading = {
   H1: styled.h1(tw`text-sky-gray-700 text-4xl tracking-tight leading-10`, font.display),

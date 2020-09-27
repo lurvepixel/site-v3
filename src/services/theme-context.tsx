@@ -1,8 +1,8 @@
 import { createContext, useState } from 'react'
 
-import { Theme } from '@/styles'
-import { noop } from '@/utils/helpers'
-import { FC, WC } from '@/common/types'
+import { Theme } from '~/styles'
+import { noop } from '~/utils/helpers'
+import { FC, WC } from '~/common/types'
 
 interface ThemeContextShape {
   theme: Theme
