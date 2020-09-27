@@ -16,7 +16,7 @@ export const MdxWrapper: FC<WC> = ({ children }) => {
         h1: Heading.H1,
         h2: Heading.H2,
         h3: Heading.H3,
-        a: props => <ActualLink tw="text-lg" {...props} />,
+        a: ActualLink,
         p: props => <p tw="leading-relaxed text-xl" {...props} />,
         inlineCode: InlineCode,
         pre: Pre,
