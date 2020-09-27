@@ -1,10 +1,21 @@
-import { useContext } from 'react'
+import { useState } from 'react'
+import useDarkMode from 'use-dark-mode'
 
-import { ThemeContext } from '~/services/theme-context'
 import { Theme } from '~/styles'
 
-export const useTheme = (): [Theme, (theme: Theme) => void] => {
-  const { theme, setTheme } = useContext(ThemeContext)
+export const useTheme = () => {
+  const [theme, setTheme] = useState<Theme | null>(null)
 
-  return [theme, setTheme]
+  const { disable, enable, toggle } = useDarkMode(false, {
+    onChange(isDark) {
+      setTheme(isDark ? 'dark' : 'light')
+    },
+  })
+
+  return {
+    theme,
+    enableLightTheme: disable,
+    enableDarkTheme: enable,
+    toggleTheme: toggle,
+  }
 }

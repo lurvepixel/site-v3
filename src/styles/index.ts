@@ -1,4 +1,5 @@
 import tw from 'twin.macro'
+import { useTheme } from '~/utils/hooks/use-theme'
 
 export const font = {
   display: tw`font-display font-semibold`,
@@ -8,6 +9,18 @@ export const font = {
 }
 
 export type Theme = 'light' | 'dark'
+
+type StyleMapValue = number | string | object
+
+export const useStyleFromMap = <T extends StyleMapValue>(
+  themeMap: Record<Theme, T>
+): T | null => {
+  const { theme } = useTheme()
+
+  if (theme == null) return null
+
+  return themeMap[theme]
+}
 
 export type Kind =
   | 'default' // or info
