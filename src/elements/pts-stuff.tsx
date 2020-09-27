@@ -41,10 +41,6 @@ export const PtsStuff = () => {
     const canvasContainer = canvasContainerRef.current
     if (canvasContainer == null) return
 
-    // fast-refresh re-runs this effect so Pts lib inserts new canvas el
-    // inside it, clearing out fixes it.
-    canvasContainer.innerHTML = ''
-
     const space = new CanvasSpace(canvasContainer)
       .setup({ bgcolor: (theme`colors.sky.gray-100` as unknown) as string })
       // .bindMouse()
@@ -85,6 +81,10 @@ export const PtsStuff = () => {
 
     return () => {
       space.dispose()
+
+      // fast-refresh re-runs this effect so Pts lib inserts new canvas el
+      // inside it, clearing out fixes it.
+      canvasContainer.innerHTML = ''
     }
   }, [])
 
