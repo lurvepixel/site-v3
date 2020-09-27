@@ -16,6 +16,8 @@ const Home: NextPage<{ code: string }> = ({ code }) => {
       <div tw="container mx-auto">
         <div tw="py-16">
           <Heading.H1>Ajit Singh</Heading.H1>
+          <Heading.H2>Ajit Singh</Heading.H2>
+          <Heading.H3>Ajit Singh</Heading.H3>
           <div>
             <p tw="mt-2 text-lg">This guy makes and breaks stuff, mostly apps.</p>
           </div>

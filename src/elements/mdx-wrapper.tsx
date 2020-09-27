@@ -36,6 +36,10 @@ const WrapperEl: FC<WC<{
     css={css`
       ${tw`container mx-auto`}
 
+      a {
+        ${tw`text-lg`}
+      }
+
       /* TODO insert into tailwind as container-content */
       /* TODO selection color + in input too */
       @media (min-width: 1024px) {
@@ -54,7 +58,7 @@ const InlineCode: FC<WC> = props => (
   <code
     css={css`
       ${font.mono}
-      ${tw`rounded text-base`}
+      ${tw`rounded text-lg`}
     `}
     style={{
       ...(props['style'] ?? {}),

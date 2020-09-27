@@ -15,7 +15,7 @@ module.exports = {
         // serif (body copy)
         serif: ['Source Serif Pro', ...defaultTheme.fontFamily.serif],
         // monospaced
-        mono: ['iA Writer Mono S', ...defaultTheme.fontFamily.mono],
+        mono: ['Roboto Mono', ...defaultTheme.fontFamily.mono],
       },
       colors: {
         sky: {
