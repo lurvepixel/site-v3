@@ -37,6 +37,6 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
 export const ActualLink = styled.a<{ active?: boolean }>(({ active = false }) => [
   font.monoBold,
-  tw`text-sm text-sky-gray-700 cursor-pointer border-b-2 border-gray-500`,
+  tw`text-sky-gray-700 cursor-pointer border-b-2 border-gray-500 hocus:border-gray-600`,
   active && tw`border-gray-600`,
 ])
