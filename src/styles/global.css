@@ -2,26 +2,26 @@
   font-family: 'Source Serif Pro';
   font-style: normal;
   font-weight: 400;
-  src: url('../common/fonts/SourceSerifPro-Regular.woff2') format('woff2');
+  src: url('../shared/fonts/SourceSerifPro-Regular.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Space Grotesk';
   font-style: normal;
   font-weight: 600;
-  src: url('../common/fonts/SpaceGrotesk-SemiBold.woff2') format('woff2');
+  src: url('../shared/fonts/SpaceGrotesk-SemiBold.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Source Code Pro';
   font-style: normal;
   font-weight: 400;
-  src: url('../common/fonts/roboto-mono-regular.woff2') format('woff2');
+  src: url('../shared/fonts/roboto-mono-regular.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Source Code Pro';
   font-style: normal;
   font-weight: 600;
-  src: url('../common/fonts/roboto-mono-semibold.woff2') format('woff2');
+  src: url('../shared/fonts/roboto-mono-semibold.woff2') format('woff2');
 }

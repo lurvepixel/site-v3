@@ -7,7 +7,7 @@ import Highlight, {
 import darksyntaxTheme from 'prism-react-renderer/themes/nightOwl'
 import lightsyntaxTheme from './customizedNightOwlLight'
 
-import { FC, WC } from '~/common/types'
+import { FC, WC } from '~/shared/types'
 import { font } from '~/styles'
 
 export const CodeBlock: FC<WC<{ className?: string }>> = ({ children, className = '' }) => {

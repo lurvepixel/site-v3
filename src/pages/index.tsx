@@ -2,18 +2,16 @@ import 'twin.macro'
 import { useState } from 'react'
 import { NextPage } from 'next'
 
-import { DefaultLayout } from '~/layouts/default-layout'
+import { DefaultLayout } from '~/elements/layouts/default-layout'
 import { Seo } from '~/elements/seo'
 import { Button } from '~/elements/atoms/button'
 import { Heading } from '~/elements/atoms/headings'
-import { useTheme } from '~/hooks/use-theme'
+import { useTheme } from '~/utils/hooks/use-theme'
 
 const Home: NextPage<{ code: string }> = () => {
   const [counter, setCounter] = useState(0)
 
   const [theme, setTheme] = useTheme()
-
-  console.log(theme)
 
   return (
     <DefaultLayout>

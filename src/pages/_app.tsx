@@ -4,7 +4,7 @@ import Head from 'next/head'
 import 'tailwindcss/dist/base.min.css'
 import tw, { css } from 'twin.macro'
 
-import { FC } from '~/common/types'
+import { FC } from '~/shared/types'
 import { GlobalThemeProvider } from '~/services/theme-context'
 import { font } from '~/styles'
 import { MdxWrapper } from '~/elements/mdx-wrapper'

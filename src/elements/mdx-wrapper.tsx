@@ -5,7 +5,7 @@ import { Heading } from '~/elements/atoms/headings'
 import { ActualLink } from '~/elements/atoms/link'
 import { CodeBlock } from '~/elements/code-block'
 import lightTheme from '~/elements/code-block/customizedNightOwlLight'
-import { FC, WC } from '~/common/types'
+import { FC, WC } from '~/shared/types'
 import { font } from '~/styles'
 
 export const MdxWrapper: FC<WC> = ({ children }) => {

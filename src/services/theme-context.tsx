@@ -1,9 +1,9 @@
-import { createContext, useState, useEffect, useCallback, useLayoutEffect } from 'react'
+import { createContext, useState, useEffect, useCallback } from 'react'
 
 import { Theme } from '~/styles'
 import { noop } from '~/utils/helpers'
-import { FC, WC } from '~/common/types'
-import { useLocalStorage } from '~/hooks/use-local-storage'
+import { FC, WC } from '~/shared/types'
+import { useLocalStorage } from '~/utils/hooks/use-local-storage'
 
 interface ThemeContextShape {
   theme: Theme
@@ -25,12 +25,12 @@ export const GlobalThemeProvider: FC<WC> = ({ children }) => {
 
   // doing this way is necessaary else react will complain that
   // it found different values on client and server (hydration)
-  useLayoutEffect(() => {
-    if (initiallyStoredTheme == null) {
+  useEffect(() => {
+    if (initiallyStoredTheme != null) {
+      _setTheme(initiallyStoredTheme)
+    } else {
       // if user has not customized the theme, use preference, don't set to local storage
       _setTheme(window.matchMedia(darkQuery).matches ? 'dark' : 'light')
-    } else {
-      _setTheme(initiallyStoredTheme)
     }
   }, [initiallyStoredTheme, darkQuery])
 
