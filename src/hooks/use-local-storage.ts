@@ -1,18 +1,21 @@
-export const useLocalStorage = <T>(key: string, initialValue: T) => {
+import { useCallback } from 'react'
+
+export const useLocalStorage = <T>(key: string, defaultValue: T): [T, (v: T) => void] => {
   const onBrowser = typeof window === 'object'
 
-  const setValue = (v: T) => {
-    if (!onBrowser) return v
+  const setValue = useCallback(
+    (v: T) => {
+      if (onBrowser) localStorage.setItem(key, JSON.stringify(v))
+    },
+    [key, onBrowser]
+  )
 
-    localStorage.setItem(key, JSON.stringify(v))
-    return v
+  let value = defaultValue
+
+  if (onBrowser) {
+    if (localStorage.getItem(key) == null) setValue(defaultValue)
+    else value = JSON.parse(localStorage.getItem(key)!)
   }
-
-  const value: T = onBrowser
-    ? localStorage.getItem(key) == null
-      ? setValue(initialValue)
-      : JSON.parse(localStorage.getItem(key)!)
-    : initialValue
 
   return [value, setValue]
 }

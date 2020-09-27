@@ -1,8 +1,9 @@
-import { createContext, useState, useEffect } from 'react'
+import { createContext, useState, useEffect, useCallback } from 'react'
 
 import { Theme } from '~/styles'
 import { noop } from '~/utils/helpers'
 import { FC, WC } from '~/common/types'
+import { useLocalStorage } from '~/hooks/use-local-storage'
 
 interface ThemeContextShape {
   theme: Theme
@@ -18,13 +19,26 @@ export const ThemeContext = createContext<ThemeContextShape>({
 export const GlobalThemeProvider: FC<WC> = ({ children }) => {
   const defaultColorScheme: Theme = 'light'
 
+  const [storedTheme, setStoredTheme] = useLocalStorage<Theme>(
+    'overriden-theme',
+    defaultColorScheme
+  )
+
   let darkQuery = '(prefers-color-scheme: dark)'
-  let [theme, setTheme] = useState<Theme>(
+  let [theme, _setTheme] = useState<Theme>(
     typeof window === 'object' && window.matchMedia
       ? window.matchMedia(darkQuery).matches
         ? 'dark'
         : 'light'
-      : defaultColorScheme
+      : storedTheme
+  )
+
+  const setTheme = useCallback(
+    (theme: Theme) => {
+      _setTheme(theme)
+      setStoredTheme(theme)
+    },
+    [setStoredTheme]
   )
 
   useEffect(() => {
@@ -39,7 +53,7 @@ export const GlobalThemeProvider: FC<WC> = ({ children }) => {
         mql.removeEventListener('change', handleChange)
       }
     }
-  }, [darkQuery])
+  }, [darkQuery, setTheme])
 
   return <ThemeContext.Provider value={{ theme, setTheme }} children={children} />
 }
