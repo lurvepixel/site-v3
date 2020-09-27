@@ -16,7 +16,7 @@ export const MdxWrapper: FC<WC> = ({ children }) => {
         h1: Heading.H1,
         h2: Heading.H2,
         h3: Heading.H3,
-        a: ActualLink,
+        a: props => <ActualLink tw="text-lg" {...props} />,
         p: props => <p tw="leading-relaxed text-xl" {...props} />,
         inlineCode: InlineCode,
         pre: Pre,
@@ -35,10 +35,6 @@ const WrapperEl: FC<WC<{
   <div
     css={css`
       ${tw`container mx-auto`}
-
-      a {
-        ${tw`text-lg`}
-      }
 
       /* TODO insert into tailwind as container-content */
       /* TODO selection color + in input too */

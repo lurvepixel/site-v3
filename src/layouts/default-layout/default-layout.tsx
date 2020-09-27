@@ -9,7 +9,7 @@ export const DefaultLayout: FC<WC> = ({ children }) => {
     <>
       <header tw="py-3">
         <div tw="container mx-auto">
-          <nav tw="uppercase text-sm">
+          <nav>
             <ul
               css={css`
                 ${tw`flex justify-end`}
