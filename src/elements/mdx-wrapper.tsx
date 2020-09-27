@@ -17,7 +17,7 @@ export const MdxWrapper: FC<WC> = ({ children }) => {
         h2: Heading.H2,
         h3: Heading.H3,
         a: ActualLink,
-        p: props => <p tw="leading-normal text-lg" {...props} />,
+        p: props => <p tw="leading-relaxed text-xl" {...props} />,
         inlineCode: InlineCode,
         pre: Pre,
         code: CodeBlock as React.ComponentType<{ children: React.ReactNode }>,
@@ -54,7 +54,7 @@ const InlineCode: FC<WC> = props => (
   <code
     css={css`
       ${font.mono}
-      ${tw`rounded text-sm`}
+      ${tw`rounded text-base`}
     `}
     style={{
       ...(props['style'] ?? {}),
