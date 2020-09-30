@@ -5,13 +5,18 @@ import { FC } from '~/shared/types'
 import { DefaultLayout } from '~/elements/layouts/default-layout'
 import { Seo } from '~/elements/seo'
 
-const ZContent = dynamic(import('~/elements/page-content/experiments/z').then(mod => mod.Z))
+const ZContent = dynamic(
+  import('~/elements/page-content/experiments/z-content').then(mod => mod.ZContent),
+  { ssr: false }
+)
 
 const Z: FC = () => {
   return (
     <DefaultLayout>
       <Seo title="Z" />
-      <ZContent />
+      <div tw="container mx-auto">
+        <ZContent />
+      </div>
     </DefaultLayout>
   )
 }
