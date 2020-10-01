@@ -9,6 +9,8 @@ const deg2rad = (n: number) => (n * (22 / 7)) / 180
 
 const minMax = (n: number, min: number, max: number) => Math.max(min, Math.min(max, n))
 
+// TODO update this to add controls, just like you did in codepen
+
 export const ZContent: FC = () => {
   // setup
   const canvasContainerRef = useRef<HTMLDivElement>(null)
@@ -19,7 +21,7 @@ export const ZContent: FC = () => {
     if (canvasContainer == null) return
 
     const space = new CanvasSpace(canvasContainer).bindMouse().bindTouch().play()
-    space.background = '#e1e9f0'
+    space.background = '#222'
 
     spaceRef.current = space
 
@@ -28,6 +30,12 @@ export const ZContent: FC = () => {
       canvasContainer.innerHTML = ''
     }
   }, [])
+
+  const DEFAULT_FACTOR = 150
+  const factorRef = useRef(DEFAULT_FACTOR)
+  const handleRadiusSliderChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    factorRef.current = parseInt(evt.target.value)
+  }
 
   useEffect(() => {
     const space = spaceRef.current
@@ -52,33 +60,22 @@ export const ZContent: FC = () => {
           ) {
             form.fillOnly('#e24').point([x, y], RADIUS, 'circle')
           } else {
-            form.fillOnly('gray').point([x, y], RADIUS, 'circle')
+            form.fillOnly('#ddd').point([x, y], RADIUS, 'circle')
 
             const isPointerAtRight = space.pointer.x > x
             const isPointerBelow = space.pointer.y > y
             const xMag = isPointerAtRight ? 1 : -1
             const yMag = isPointerBelow ? 1 : -1
 
-            // let xShift = Math.abs(x - space.pointer.x) / 15
-            // if (xShift > 1) {
-            //   xShift = 1
-            // }
-
-            // let yShift = Math.abs(y - space.pointer.y) / 15
-            // if (yShift > 1) {
-            //   yShift = 1
-            // }
-            const FACTOR = 100
-
             if (
-              Math.abs(x - space.pointer.x) > FACTOR ||
-              Math.abs(y - space.pointer.y) > FACTOR
+              Math.abs(x - space.pointer.x) > factorRef.current ||
+              Math.abs(y - space.pointer.y) > factorRef.current
             ) {
               continue
             }
 
-            let xShift = Math.abs(x - space.pointer.x) / FACTOR
-            let yShift = Math.abs(y - space.pointer.y) / FACTOR
+            let xShift = Math.abs(x - space.pointer.x) / factorRef.current
+            let yShift = Math.abs(y - space.pointer.y) / factorRef.current
 
             form
               .fillOnly(space.background)
@@ -90,12 +87,28 @@ export const ZContent: FC = () => {
   }, [])
 
   return (
-    <div
-      ref={canvasContainerRef}
-      css={css`
-        width: 480px;
-        height: 480px;
-      `}
-    />
+    <>
+      <div
+        ref={canvasContainerRef}
+        css={css`
+          cursor: none;
+          width: 480px;
+          height: 480px;
+        `}
+      />
+      <label tw="my-4 block">
+        Radius
+        <input
+          type="range"
+          name="points"
+          min={50}
+          max={350}
+          step={50}
+          defaultValue={DEFAULT_FACTOR}
+          onChange={handleRadiusSliderChange}
+          tw="ml-3"
+        />
+      </label>
+    </>
   )
 }
