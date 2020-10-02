@@ -33,8 +33,14 @@ export const ZContent: FC = () => {
 
   const DEFAULT_FACTOR = 150
   const factorRef = useRef(DEFAULT_FACTOR)
-  const handleRadiusSliderChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFactorSliderChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     factorRef.current = parseInt(evt.target.value)
+  }
+
+  const DEFAULT_RADIUS = 10
+  const radiusRef = useRef(DEFAULT_RADIUS)
+  const handleRadiusSliderChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    radiusRef.current = parseInt(evt.target.value)
   }
 
   useEffect(() => {
@@ -44,23 +50,21 @@ export const ZContent: FC = () => {
 
     const form = space.getForm()
 
-    const RADIUS = 10
-
     space.add((t, td) => {
       for (let i = 0; i < 10; ++i) {
         for (let j = 0; j < 10; ++j) {
-          const x = 40 * (i + 1) + 10
-          const y = 40 * (j + 1) + 10
+          const x = radiusRef.current * 4 * (i + 1) + radiusRef.current
+          const y = radiusRef.current * 4 * (j + 1) + radiusRef.current
 
           if (
-            x - RADIUS * 1.5 <= space.pointer.x &&
-            space.pointer.x <= x + RADIUS * 1.5 &&
-            y - RADIUS * 1.5 <= space.pointer.y &&
-            space.pointer.y <= y + RADIUS * 1.5
+            x - radiusRef.current * 1.5 <= space.pointer.x &&
+            space.pointer.x <= x + radiusRef.current * 1.5 &&
+            y - radiusRef.current * 1.5 <= space.pointer.y &&
+            space.pointer.y <= y + radiusRef.current * 1.5
           ) {
-            form.fillOnly('#e24').point([x, y], RADIUS, 'circle')
+            form.fillOnly('#e24').point([x, y], radiusRef.current, 'circle')
           } else {
-            form.fillOnly('#ddd').point([x, y], RADIUS, 'circle')
+            form.fillOnly('#ddd').point([x, y], radiusRef.current, 'circle')
 
             const isPointerAtRight = space.pointer.x > x
             const isPointerBelow = space.pointer.y > y
@@ -80,8 +84,11 @@ export const ZContent: FC = () => {
             form
               .fillOnly(space.background)
               .point(
-                [x + xMag * RADIUS * 2 * xShift, y + yMag * RADIUS * 2 * yShift],
-                RADIUS,
+                [
+                  x + xMag * radiusRef.current * 2 * xShift,
+                  y + yMag * radiusRef.current * 2 * yShift,
+                ],
+                radiusRef.current,
                 'circle'
               )
           }
@@ -101,7 +108,7 @@ export const ZContent: FC = () => {
         `}
       />
       <label tw="my-4 block">
-        Radius
+        Spread radius
         <input
           type="range"
           name="points"
@@ -109,6 +116,19 @@ export const ZContent: FC = () => {
           max={350}
           step={50}
           defaultValue={DEFAULT_FACTOR}
+          onChange={handleFactorSliderChange}
+          tw="ml-3"
+        />
+      </label>
+      <label tw="my-4 block">
+        Circle radius
+        <input
+          type="range"
+          name="points"
+          min={8}
+          max={16}
+          step={2}
+          defaultValue={DEFAULT_RADIUS}
           onChange={handleRadiusSliderChange}
           tw="ml-3"
         />
