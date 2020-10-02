@@ -53,10 +53,10 @@ export const ZContent: FC = () => {
           const y = 40 * (j + 1) + 10
 
           if (
-            x - 10 <= space.pointer.x &&
-            space.pointer.x <= x + 10 &&
-            y - 10 <= space.pointer.y &&
-            space.pointer.y <= y + 10
+            x - RADIUS * 1.5 <= space.pointer.x &&
+            space.pointer.x <= x + RADIUS * 1.5 &&
+            y - RADIUS * 1.5 <= space.pointer.y &&
+            space.pointer.y <= y + RADIUS * 1.5
           ) {
             form.fillOnly('#e24').point([x, y], RADIUS, 'circle')
           } else {
@@ -79,7 +79,11 @@ export const ZContent: FC = () => {
 
             form
               .fillOnly(space.background)
-              .point([x + xMag * 19 * xShift, y + yMag * 19 * yShift], RADIUS, 'circle')
+              .point(
+                [x + xMag * RADIUS * 2 * xShift, y + yMag * RADIUS * 2 * yShift],
+                RADIUS,
+                'circle'
+              )
           }
         }
       }
