@@ -1,0 +1,22 @@
+diff --git a/node_modules/@react-spring/core/index.js b/node_modules/@react-spring/core/index.js
+index cf512ea..10ec1bd 100644
+--- a/node_modules/@react-spring/core/index.js
++++ b/node_modules/@react-spring/core/index.js
+@@ -2305,7 +2305,7 @@ function useSprings(length, props, deps) {
+   const layoutId = useRef(0);
+   const forceUpdate = useForceUpdate(); // State is updated on commit.
+ 
+-  const [state] = useState(() => ({
++  const state = useMemo$1(() => ({
+     ctrls: [],
+     queue: [],
+ 
+@@ -2323,7 +2323,7 @@ function useSprings(length, props, deps) {
+       });
+     }
+ 
+-  })); // The imperative API ref from the props of the first controller.
++  }), []); // The imperative API ref from the props of the first controller.
+ 
+   const refProp = useRef();
+   const ctrls = [...state.ctrls];

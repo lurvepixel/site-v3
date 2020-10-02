@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "postinstall": "patch-package",
     "dev": "next dev",
     "build": "next build",
     "serve:prod": "next build & next start",
@@ -41,6 +42,7 @@
     "eslint-plugin-mdx": "^1.7.1",
     "eslint-plugin-react": "^7.20.4",
     "eslint-plugin-react-hooks": "^2.5.1",
+    "patch-package": "^6.2.2",
     "prettier": "^2.0.5",
     "twin.macro": "^1.9.0",
     "typescript": "^3.9.7"
