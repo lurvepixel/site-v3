@@ -5,20 +5,22 @@ import { FC } from '~/shared/types'
 import { DefaultLayout } from '~/elements/layouts/default-layout'
 import { Seo } from '~/elements/seo'
 
-const ZContent = dynamic(
-  import('~/elements/page-content/experiments/z-content').then(mod => mod.ZContent),
+const ShunyaContent = dynamic(
+  import('~/elements/page-content/experiments/00-shunya-content').then(
+    mod => mod.ShunyaContent
+  ),
   { ssr: false }
 )
 
-const Z: FC = () => {
+const Shunya: FC = () => {
   return (
     <DefaultLayout>
-      <Seo title="Z" />
+      <Seo title="Shunya" />
       <div tw="container mx-auto">
-        <ZContent />
+        <ShunyaContent />
       </div>
     </DefaultLayout>
   )
 }
 
-export default Z
+export default Shunya

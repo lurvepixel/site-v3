@@ -11,7 +11,7 @@ const minMax = (n: number, min: number, max: number) => Math.max(min, Math.min(m
 
 // TODO update this to add controls, just like you did in codepen
 
-export const ZContent: FC = () => {
+export const ShunyaContent: FC = () => {
   // setup
   const canvasContainerRef = useRef<HTMLDivElement>(null)
   const spaceRef = useRef<CanvasSpace | null>(null)
@@ -20,7 +20,14 @@ export const ZContent: FC = () => {
     const canvasContainer = canvasContainerRef.current
     if (canvasContainer == null) return
 
-    const space = new CanvasSpace(canvasContainer).bindMouse().bindTouch().play()
+    const space = new CanvasSpace(canvasContainer)
+      .setup({
+        retina: true,
+        // resize: true,
+      })
+      .bindMouse()
+      .bindTouch()
+      .play()
     space.background = '#222'
 
     spaceRef.current = space
@@ -57,10 +64,10 @@ export const ZContent: FC = () => {
           const y = radiusRef.current * 4 * (j + 1) + radiusRef.current
 
           if (
-            x - radiusRef.current * 1.5 <= space.pointer.x &&
-            space.pointer.x <= x + radiusRef.current * 1.5 &&
-            y - radiusRef.current * 1.5 <= space.pointer.y &&
-            space.pointer.y <= y + radiusRef.current * 1.5
+            x - radiusRef.current * 1.99 <= space.pointer.x &&
+            space.pointer.x <= x + radiusRef.current * 2 &&
+            y - radiusRef.current * 1.99 <= space.pointer.y &&
+            space.pointer.y <= y + radiusRef.current * 2
           ) {
             form.fillOnly('#e24').point([x, y], radiusRef.current, 'circle')
           } else {
