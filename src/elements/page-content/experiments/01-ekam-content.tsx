@@ -58,7 +58,7 @@ export const EkamContent: FC = () => {
       .bindMouse()
       .bindTouch()
       .play()
-    space.background = '#444'
+    space.background = '#222'
 
     spaceRef.current = space
 
@@ -104,7 +104,7 @@ export const EkamContent: FC = () => {
 
         const rect = Rectangle.fromCenter(center, 20 + 40 * i)
         const poly = Rectangle.corners(rect).rotate2D(rad, center)
-        form.strokeOnly('#e45', 5, 'round').glow('#e45', 10).polygon(poly)
+        form.strokeOnly('#e45', 5, 'round').glow('#e45', 20).polygon(poly)
       }
     })
   }, [])
