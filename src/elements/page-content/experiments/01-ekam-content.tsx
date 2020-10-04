@@ -1,6 +1,6 @@
 import { css } from 'twin.macro'
 import { useEffect, useRef, useState } from 'react'
-import { CanvasForm, CanvasSpace } from 'pts'
+import { CanvasForm, CanvasSpace, Geom, Rectangle } from 'pts'
 import { useSpring, useSprings } from 'react-spring'
 
 import { FC } from '~/shared/types'
@@ -10,9 +10,27 @@ const deg2rad = (n: number) => (n * (22 / 7)) / 180
 const minMax = (n: number, min: number, max: number) => Math.max(min, Math.min(max, n))
 
 class ExpandedForm extends CanvasForm {
-  glow(color = '#e45', width = 10): this {
-    this._ctx.shadowBlur = width
-    this._ctx.shadowColor = color
+  glow(color: 'stroke' | 'fill' | string | undefined = undefined, spread = 10): this {
+    let pickedColor = color
+
+    if (color === 'stroke') {
+      pickedColor = this._style.strokeStyle as string
+    } else if (color === 'fill') {
+      pickedColor = this._style.fillStyle as string
+    }
+
+    if (color === undefined) {
+      if (typeof this._style.strokeStyle === 'string') {
+        pickedColor = this._style.strokeStyle
+      } else if (typeof this._style.fillStyle === 'string') {
+        pickedColor = this._style.fillStyle
+      } else {
+        pickedColor = '#e45'
+      }
+    }
+
+    this._ctx.shadowBlur = spread
+    this._ctx.shadowColor = pickedColor!
 
     return this
   }
@@ -50,6 +68,21 @@ export const EkamContent: FC = () => {
     }
   }, [])
 
+  const spring = useSpring({
+    from: {
+      n: 0,
+    },
+    n: 1,
+    loop: { reverse: true },
+    config: {
+      frequency: 1.5,
+      damping: 1,
+    },
+    // onChange(v) {
+    //   console.log(v)
+    // },
+  })
+
   useEffect(() => {
     const space = spaceRef.current
 
@@ -58,13 +91,21 @@ export const EkamContent: FC = () => {
     const form = space.getForm()
 
     space.add((t, td) => {
-      form
-        .strokeOnly('#e45', 20)
-        .glow()
-        .rect([
-          [10, 10],
-          [120, 120],
-        ])
+      const len = 18
+      for (let i = 1; i <= len; ++i) {
+        const center = [
+          space.center.x,
+          space.center.y + spring.n.to([0, 1], [-(10 + 15 * i), 10 + 15 * i]).get(),
+        ]
+
+        const rad = Geom.toRadian(
+          spring.n.to([0, 0.5, 1], [-(10 + 5 * i), 0, 10 + 5 * i]).get()
+        )
+
+        const rect = Rectangle.fromCenter(center, 20 + 40 * i)
+        const poly = Rectangle.corners(rect).rotate2D(rad, center)
+        form.strokeOnly('#e45', 5, 'round').glow('#e45', 10).polygon(poly)
+      }
     })
   }, [])
 
