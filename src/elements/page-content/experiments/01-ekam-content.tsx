@@ -1,6 +1,6 @@
 import { css } from 'twin.macro'
 import { useEffect, useRef, useState } from 'react'
-import { CanvasSpace, Group, Pt, Geom, Rectangle, Const } from 'pts'
+import { CanvasForm, CanvasSpace, Group, Pt, Geom, Rectangle, Const, GroupLike } from 'pts'
 import { useSpring, useSprings } from 'react-spring'
 
 import { FC } from '~/shared/types'
@@ -9,25 +9,49 @@ const deg2rad = (n: number) => (n * (22 / 7)) / 180
 
 const minMax = (n: number, min: number, max: number) => Math.max(min, Math.min(max, n))
 
-// TODO update this to add controls, just like you did in codepen
+class ExpandedForm extends CanvasForm {
+  static rectWithGlow(ctx: CanvasRenderingContext2D, pts: GroupLike | number[][]) {
+    if (pts.length < 2) return
+    ctx.beginPath()
+    ctx.moveTo(pts[0][0], pts[0][1])
+    ctx.lineTo(pts[0][0], pts[1][1])
+    ctx.lineTo(pts[1][0], pts[1][1])
+    ctx.lineTo(pts[1][0], pts[0][1])
+    ctx.shadowBlur = 10
+    ctx.shadowColor = '#e41'
+    ctx.closePath()
+  }
+
+  rectWithGlow(pts: number[][] | Pt[]): this {
+    ExpandedForm.rect(this._ctx, pts)
+    this._paint()
+    return this
+  }
+}
+
+class ExapandedSpace extends CanvasSpace {
+  public getForm(): ExpandedForm {
+    return new ExpandedForm(this)
+  }
+}
 
 export const EkamContent: FC = () => {
   // setup
   const canvasContainerRef = useRef<HTMLDivElement>(null)
-  const spaceRef = useRef<CanvasSpace | null>(null)
+  const spaceRef = useRef<ExapandedSpace | null>(null)
 
   useEffect(() => {
     const canvasContainer = canvasContainerRef.current
     if (canvasContainer == null) return
 
-    const space = new CanvasSpace(canvasContainer)
+    const space = new ExapandedSpace(canvasContainer)
       .setup({
         retina: true,
       })
       .bindMouse()
       .bindTouch()
       .play()
-    // space.background = '#222'
+    space.background = '#444'
 
     spaceRef.current = space
 
@@ -37,18 +61,6 @@ export const EkamContent: FC = () => {
     }
   }, [])
 
-  const spring = useSpring({
-    from: {
-      n: 0,
-    },
-    n: 5,
-    loop: { reverse: true },
-    config: {
-      frequency: 0.6,
-      damping: 1,
-    },
-  })
-
   useEffect(() => {
     const space = spaceRef.current
 
@@ -57,16 +69,10 @@ export const EkamContent: FC = () => {
     const form = space.getForm()
 
     space.add((t, td) => {
-      for (let i = 1; i <= 10; ++i) {
-        const disp = spring.n.to([0, 5], [5, 20 * i]).get()
-        const angle = spring.n.to([0, 5], [0, -45]).get()
-
-        const rect = Rectangle.fromCenter(space.center, [30 * i + disp, 30 * i + disp])
-
-        const poly = Rectangle.corners(rect).rotate2D(Geom.toRadian(angle), space.center)
-
-        form.strokeOnly('#333', 8, 'round').polygon(poly)
-      }
+      form.strokeOnly('#e45').rectWithGlow([
+        [10, 10],
+        [40, 40],
+      ])
     })
   }, [])
 
@@ -75,7 +81,7 @@ export const EkamContent: FC = () => {
       <div
         ref={canvasContainerRef}
         css={css`
-          cursor: none;
+          /* cursor: none; */
           width: 480px;
           height: 480px;
         `}
