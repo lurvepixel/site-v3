@@ -1,6 +1,6 @@
 import { css } from 'twin.macro'
 import { useEffect, useRef, useState } from 'react'
-import { CanvasForm, CanvasSpace, Group, Pt, Geom, Rectangle, Const, GroupLike } from 'pts'
+import { CanvasForm, CanvasSpace } from 'pts'
 import { useSpring, useSprings } from 'react-spring'
 
 import { FC } from '~/shared/types'
@@ -10,21 +10,10 @@ const deg2rad = (n: number) => (n * (22 / 7)) / 180
 const minMax = (n: number, min: number, max: number) => Math.max(min, Math.min(max, n))
 
 class ExpandedForm extends CanvasForm {
-  static rectWithGlow(ctx: CanvasRenderingContext2D, pts: GroupLike | number[][]) {
-    if (pts.length < 2) return
-    ctx.beginPath()
-    ctx.moveTo(pts[0][0], pts[0][1])
-    ctx.lineTo(pts[0][0], pts[1][1])
-    ctx.lineTo(pts[1][0], pts[1][1])
-    ctx.lineTo(pts[1][0], pts[0][1])
-    ctx.shadowBlur = 10
-    ctx.shadowColor = '#e41'
-    ctx.closePath()
-  }
+  glow(color = '#e45', width = 10): this {
+    this._ctx.shadowBlur = width
+    this._ctx.shadowColor = color
 
-  rectWithGlow(pts: number[][] | Pt[]): this {
-    ExpandedForm.rect(this._ctx, pts)
-    this._paint()
     return this
   }
 }
@@ -69,10 +58,13 @@ export const EkamContent: FC = () => {
     const form = space.getForm()
 
     space.add((t, td) => {
-      form.strokeOnly('#e45').rectWithGlow([
-        [10, 10],
-        [40, 40],
-      ])
+      form
+        .strokeOnly('#e45', 20)
+        .glow()
+        .rect([
+          [10, 10],
+          [120, 120],
+        ])
     })
   }, [])
 
