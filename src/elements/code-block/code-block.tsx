@@ -5,7 +5,7 @@ import Highlight, {
   PrismTheme,
 } from 'prism-react-renderer'
 import darksyntaxTheme from 'prism-react-renderer/themes/nightOwl'
-import lightsyntaxTheme from './customizedNightOwlLight'
+import { theme as lightsyntaxTheme } from './customizedNightOwlLight'
 
 import { FC, WC } from '~/shared/types'
 import { font } from '~/styles'

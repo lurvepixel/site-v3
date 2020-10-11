@@ -1,6 +1,6 @@
 // Original: https://github.com/sdras/night-owl-vscode-theme
 // Converted automatically using ./tools/themeFromVsCode
-var theme = {
+export const theme = {
   plain: {
     color: '#403f53',
     backgroundColor: '#f3f7fb',
@@ -93,5 +93,3 @@ var theme = {
     },
   ],
 }
-
-export default theme
