@@ -5,7 +5,7 @@ import Highlight, {
   PrismTheme,
 } from 'prism-react-renderer'
 import darksyntaxTheme from 'prism-react-renderer/themes/nightOwl'
-import { theme as lightsyntaxTheme } from './customizedNightOwlLight'
+import { theme as lightTheme } from './customizedNightOwlLight'
 
 import { FC, WC } from '~/shared/types'
 import { font } from '~/styles'
@@ -16,7 +16,7 @@ export const CodeBlock: FC<WC<{ className?: string }>> = ({ children, className 
   return (
     <Highlight
       {...prismDefaultProps}
-      theme={lightsyntaxTheme as PrismTheme}
+      theme={lightTheme as PrismTheme}
       code={children?.toString().trim() ?? ''}
       language={lang as Language}
     >
