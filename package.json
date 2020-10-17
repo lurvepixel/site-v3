@@ -16,7 +16,7 @@
     "@next/mdx": "^9.4.4",
     "ky": "^0.23.0",
     "ky-universal": "^0.8.1",
-    "next": "^9.5.3",
+    "next": "^9.5.6-canary.4",
     "prism-react-renderer": "^1.1.1",
     "pts": "^0.9.5",
     "react": "^16.13.1",
