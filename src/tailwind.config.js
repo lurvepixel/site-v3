@@ -5,17 +5,16 @@ module.exports = {
   theme: {
     fontWeight: {
       normal: 400,
-      semibold: 600,
       bold: 700,
     },
     extend: {
       fontFamily: {
         // display copy
-        display: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
+        // display: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
         // serif (body copy)
-        serif: ['Source Serif Pro', ...defaultTheme.fontFamily.serif],
+        serif: ['IBM Plex Serif', ...defaultTheme.fontFamily.serif],
         // monospaced
-        mono: ['Roboto Mono', ...defaultTheme.fontFamily.mono],
+        mono: ['iA Writer Mono', ...defaultTheme.fontFamily.mono],
       },
       colors: {
         sky: {

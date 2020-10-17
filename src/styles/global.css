@@ -1,27 +1,27 @@
 @font-face {
-  font-family: 'Source Serif Pro';
+  font-family: 'iA Writer Mono';
   font-style: normal;
   font-weight: 400;
-  src: url('../shared/fonts/SourceSerifPro-Regular.woff2') format('woff2');
+  src: url('../shared/fonts/iAWriterMonoS-Regular.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Space Grotesk';
+  font-family: 'iA Writer Mono';
   font-style: normal;
-  font-weight: 600;
-  src: url('../shared/fonts/SpaceGrotesk-SemiBold.woff2') format('woff2');
+  font-weight: 700;
+  src: url('../shared/fonts/iAWriterMonoS-Bold.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Source Code Pro';
+  font-family: 'IBM Plex Serif';
   font-style: normal;
   font-weight: 400;
-  src: url('../shared/fonts/roboto-mono-regular.woff2') format('woff2');
+  src: url('../shared/fonts/IBMPlexSerif-Regular.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Source Code Pro';
+  font-family: 'IBM Plex Serif';
   font-style: normal;
-  font-weight: 600;
-  src: url('../shared/fonts/roboto-mono-semibold.woff2') format('woff2');
+  font-weight: 700;
+  src: url('../shared/fonts/IBMPlexSerif-Bold.woff2') format('woff2');
 }

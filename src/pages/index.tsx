@@ -13,7 +13,6 @@ const Home: NextPage = () => {
   return (
     <DefaultLayout>
       <Seo title="Home" />
-      <button>welp</button>
       <div
         css={css`
           ${tw`container mx-auto`}

@@ -2,10 +2,11 @@ import tw from 'twin.macro'
 import { useTheme } from '~/utils/hooks/use-theme'
 
 export const font = {
-  display: tw`font-display font-semibold`,
+  display: tw`font-serif font-bold`,
   serif: tw`font-serif`,
+  serifBold: tw`font-serif font-bold`,
   mono: tw`font-mono`,
-  monoBold: tw`font-mono font-semibold`,
+  monoBold: tw`font-mono font-bold`,
 }
 
 export type Theme = 'light' | 'dark'
