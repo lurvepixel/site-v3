@@ -36,7 +36,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 )
 
 export const ActualLink = styled.a<{ active?: boolean }>(({ active = false }) => [
-  font.serif,
+  font.sans,
   tw`border-b-2 border-blue-400 hocus:border-blue-600`,
   active && tw`border-blue-600`,
 ])

@@ -6,17 +6,10 @@
 }
 
 @font-face {
-  font-family: 'iA Writer Mono';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../shared/fonts/iAWriterMonoS-Bold.woff2') format('woff2');
-}
-
-@font-face {
   font-family: 'IBM Plex Serif';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../shared/fonts/IBMPlexSerif-Regular.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 600;
+  src: url('../shared/fonts/IBMPlexSerif-SemiBoldItalic.woff2') format('woff2');
 }
 
 @font-face {
@@ -24,4 +17,11 @@
   font-style: normal;
   font-weight: 700;
   src: url('../shared/fonts/IBMPlexSerif-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Chivo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../shared/fonts/Chivo-Regular.woff2') format('woff2');
 }

@@ -17,7 +17,7 @@ export const Button = styled.button<ButtonProps>(
     }
 
     return [
-      font.monoBold,
+      font.serifBold,
       tw`text-sm px-4 py-2 border rounded-2xl tracking-wide`,
       fullWidth && tw`w-full`,
       kindMap[kind],

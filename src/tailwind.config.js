@@ -5,17 +5,18 @@ module.exports = {
   theme: {
     fontWeight: {
       normal: 400,
+      semibold: 600,
       bold: 700,
     },
+    fontFamily: {
+      // sans (body copy)
+      sans: ['Chivo', ...defaultTheme.fontFamily.sans],
+      // serif
+      serif: ['IBM Plex Serif', ...defaultTheme.fontFamily.serif],
+      // monospaced
+      mono: ['iA Writer Mono', ...defaultTheme.fontFamily.mono],
+    },
     extend: {
-      fontFamily: {
-        // display copy
-        // display: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
-        // serif (body copy)
-        serif: ['IBM Plex Serif', ...defaultTheme.fontFamily.serif],
-        // monospaced
-        mono: ['iA Writer Mono', ...defaultTheme.fontFamily.mono],
-      },
       colors: {
         sky: {
           black: '#222222', // text

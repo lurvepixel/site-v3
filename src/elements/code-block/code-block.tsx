@@ -25,7 +25,7 @@ export const CodeBlock: FC<WC<{ className?: string }>> = ({ children, className 
           <div tw="flex justify-end">
             <div
               css={css`
-                ${font.monoBold}
+                ${font.mono}
                 ${tw`relative z-10 -mb-3 inline-block text-sm border text-sky-gray-500 px-3 py-1 rounded leading-none mr-4 bg-sky-gray-100`}
               `}
             >

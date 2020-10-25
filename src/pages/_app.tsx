@@ -27,7 +27,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
       <div
         css={css`
           ${tw`min-h-screen antialiased break-words text-sky-black bg-sky-gray-100`}
-          ${font.serif}
+          ${font.sans}
         `}
       >
         <MdxWrapper>
