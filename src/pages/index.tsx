@@ -19,7 +19,7 @@ const Home: NextPage = () => {
           <p tw="mt-2 text-lg">This site is a work in progress.</p>
         </div>
       </div>
-      <!--  
+      {/*  
       <div
         css={css`
           ${tw`container mx-auto`}
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
           nxdcndj
         </p>
       </div>
-      -->
+      */}
     </DefaultLayout>
   )
 }
