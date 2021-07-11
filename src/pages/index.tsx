@@ -13,6 +13,13 @@ const Home: NextPage = () => {
   return (
     <DefaultLayout>
       <Seo title="Home" />
+     <div tw="py-16">
+        <Heading.H1>Ajit Singh</Heading.H1>
+        <div>
+          <p tw="mt-2 text-lg">This site is a work in progress.</p>
+        </div>
+      </div>
+      <!--  
       <div
         css={css`
           ${tw`container mx-auto`}
@@ -34,6 +41,7 @@ const Home: NextPage = () => {
           nxdcndj
         </p>
       </div>
+      -->
     </DefaultLayout>
   )
 }
