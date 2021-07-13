@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         `}
       >
         <div tw="py-16">
-           <Heading.H1>Ajit Singh</Heading.H1>
+           <Heading.H1>Ajit</Heading.H1>
            <div>
              <p tw="mt-2 text-lg">This site is a work in progress, check back later. <span aria-role="img" aria-label="Smiling face">🙂</span></p>
            </div>
