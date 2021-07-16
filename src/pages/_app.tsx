@@ -21,7 +21,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <div>
       <Head>
-        <title>Ajit Singh</title>
+        <title>Ajit</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div
